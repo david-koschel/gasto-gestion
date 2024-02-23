@@ -8,8 +8,42 @@ body {
 }
 
 header {
-  background: red;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+  }
+
+  .logo {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .nav-button {
+    background-color: transparent;
+    color: #ffc107;
+    border: 2px solid #ffc107;
+    padding: 10px 20px;
+    margin: 0.3rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  }
+
+  .nav-button:hover {
+    background: none;
+    color: rgba(176, 132, 9, 0.93);
+  }
 }
+
 
 footer {
   background-color: #1F2937; /* Color de fondo del footer */
