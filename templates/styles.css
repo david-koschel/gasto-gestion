@@ -2,14 +2,26 @@ body {
   background-color: #1F2937;
   padding: 0;
   margin: 0;
-  & header {
-    background: red;
-  }
-  & footer {
-    position: absolute;
-    bottom: 0;
-  }
-  #content {
-    padding: 2rem;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Establecer la altura mínima del cuerpo para que ocupe toda la ventana */
+}
+
+header {
+  background: red;
+}
+
+footer {
+  background-color: #1F2937; /* Color de fondo del footer */
+  color: #5555; /* Color del texto */
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto; /* Mover el footer hacia la parte inferior */
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+#content {
+  padding: 2rem;
 }
