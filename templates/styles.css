@@ -82,3 +82,25 @@ footer {
 #content {
   padding: 2rem;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #f8f9fa;
+}
+
+th, td {
+  border: 1px solid #e9ecef;
+  padding: 8px;
+  text-align: left;
+  background-color: #fff;
+}
+
+th {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
