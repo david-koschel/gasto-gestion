@@ -5,63 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Registro</title>
     <link rel="stylesheet" href="styles.css"> <!-- Enlazar tu archivo CSS -->
-    <style>
-        /* Agregar estilos específicos aquí si es necesario */
-        .titulo {
-            color: #FFFFFF; /* Color blanco */
-        }
-
-        .confirm-button {
-            background-color: transparent;
-            color: #ffc107;
-            border: 2px solid #ffc107;
-            padding: 10px 20px;
-            margin: 0.3rem;
-            font-size: 1rem;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-        }
-
-        .confirm-button:hover {
-            background: none;
-            color: rgba(176, 132, 9, 0.93);
-        }
-    </style>
 </head>
 <body>
-<div style="align-items: center;">
-    <form action="#" method="post">
-        <h2 class="titulo" style="text-align: center;">Regístrate</h2>
-        <label for="nombre"></label>
-        <br>
-        <input type="text" id="nombre_empresa" name="nombre_empresa" placeholder="Nombre de la Empresa" required>
-        <br>
-        
-        <label for="email"></label>
-        <br>
-        <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
-        <br>
-        
-        <label for="cif"></label>
-        <br>
-        <input type="text" id="cif" name="cif" placeholder="CIF" required>
-        <br>
-        
-        <label for="contraseña"></label>
-        <br>
-        <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>
-        <br>
-        
-        <label for="confirmar_contraseña"></label>
-        <br>
-        <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" placeholder="Confirmar Contraseña" required>
-        <br>
-        
-        <p style="text-align:center; color:#0DE8B3;">¿Ya está registrado? ¡Inicie sesión!</p>
-        <br>
-    
-        <input type="submit" value="Confirmar" class="confirm-button">
+<div style="display: flex; justify-content: center;">
+    <form  action="#" method="post">
+        <div style="display: flex; flex-direction: column; text-align: center; gap: .25rem;">
+            <h2 class="titulo" style="text-align: center; color: #FFFFFF;">Regístrate</h2>
+            <label for="nombre_empresa" style="display: flex; align-items: center;">
+                <!-- Icono SVG anterior -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
+                    <path fill="#04D2FF" d="m16 30l-8.436-9.949a35.076 35.076 0 0 1-.348-.451A10.889 10.889 0 0 1 5 13a11 11 0 0 1 22 0a10.884 10.884 0 0 1-2.215 6.597l-.001.003s-.3.394-.345.447ZM8.813 18.395s.233.308.286.374L16 26.908l6.91-8.15c.044-.055.278-.365.279-.366A8.901 8.901 0 0 0 25 13a9 9 0 0 0-18 0a8.905 8.905 0 0 0 1.813 5.395"/>
+                    <path fill="#04D2FF" d="M21 18h-2v-8h-6v8h-2v-8a2.002 2.002 0 0 1 2-2h6a2.002 2.002 0 0 1 2 2Z"/>
+                    <path fill="#04D2FF" d="M15 16h2v2h-2zm0-4h2v2h-2z"/>
+                </svg>
+                <input type="text" id="nombre_empresa" name="nombre_empresa" placeholder="Nombre de la Empresa" required> 
+            </label>
+            
+            <label for="email" style="display: flex; align-items: center;">
+                <!-- Nuevo icono SVG con el mismo color -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="#04D2FF">
+                    <path fill="currentColor" d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zM20 8l-7.475 4.675q-.125.075-.262.113t-.263.037q-.125 0-.262-.037t-.263-.113L4 8v10h16zm-8 3l8-5H4zM4 8v.25v-1.475v.025V6v.8v-.012V8.25zv10z"/>
+                </svg>
+                <input type="email" id="email" name="email" placeholder="Correo Electrónico" required> 
+            </label>
+            
+            <label for="cif" style="display: flex; align-items: center;">
+                <!-- Nuevo icono SVG para CIF -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" style="margin-right: 5px;">
+                    <path fill="currentColor" d="M5 19V5h7v7h7v1c.7 0 1.37.13 2 .35V9l-6-6H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h8.35c-.22-.63-.35-1.3-.35-2zm9-14.5l5.5 5.5H14zM23 18v2h-3v3h-2v-3h-3v-2h3v-3h2v3z"/>
+                </svg>
+                <input type="text" id="cif" name="cif" placeholder="CIF" required>    
+            </label>
+                     
+            <label for="contraseña"></label>
+            <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>        
+            <label for="confirmar_contraseña"></label>
+            <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" placeholder="Confirmar Contraseña" required>        
+
+            <p style="text-align:center; color:#0DE8B3;">¿Ya está registrado? ¡Inicie sesión!</p>    
+            <div class="button-container">
+                <button type="submit" label="Confirmar" class="confirmar">Confirmar</button>
+            </div>
+        </div>
     </form>
     
 </div>

@@ -26,7 +26,7 @@ header {
     font-weight: bold;
   }
 
-  .nav-button {
+  .nav-button, .confirm-button { /* Aplicar el mismo estilo a ambos botones */
     background-color: transparent;
     color: #ffc107;
     border: 2px solid #ffc107;
@@ -38,7 +38,7 @@ header {
     transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   }
 
-  .nav-button:hover {
+  .nav-button:hover, .confirm-button:hover { /* Aplicar el mismo efecto de hover a ambos botones */
     background: none;
     color: rgba(176, 132, 9, 0.93);
   }
@@ -81,4 +81,30 @@ footer {
 
 #content {
   padding: 2rem;
+}
+
+input {
+  border: 0;
+  background: transparent;
+  border-bottom: solid #778899;
+  color: white;
+  &::placeholder {
+    color: white;
+  }
+}
+
+.confirmar {
+  background-color: transparent;
+  color: #ffc107;
+  border: 2px solid #ffc107;
+  padding: 10px 20px;
+  margin: 0.3rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+  &:hover { 
+    color: rgba(176, 132, 9, 0.93);
+  }
 }
