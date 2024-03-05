@@ -1,33 +1,41 @@
-let rowTemplate = document.getElementById('th-template');
-let headerTemplate = document.querySelector('#table-header template');
+let rowHeaderTemplate = document.getElementById('th-template');
+let rowTemplate = document.getElementById('tbody-template')
 let table = document.getElementById('table');
 
-createTableHeaders("ID");
-createTableHeaders("Name");
-createRow(["Content 1", "Content 2"]); // Example row with content
-createRow(["Content A", "Content B"]); // Another example row with content
+createTableHeaders(["ID", "Name", "Profesión"]);
+createRow(["1", "Pablo", "Puto"]); // Example row with content
+createRow(["2", "David", "Tarado"]); // Another example row with content
 
-function createTableHeaders(text) {
-    let newHeaderRow = document.importNode(headerTemplate.content, true);
-    let headerColumns = newHeaderRow.querySelectorAll("th");
+function createTableHeaders(contents) {
+    let newHeaderRow = rowHeaderTemplate.content.querySelector("#tr-header");
 
-    headerColumns.forEach((headerColumn, index) => {
-        headerColumn.textContent = text;
+    let firstTh = newHeaderRow.querySelector("th");
+    if (firstTh) {
+        firstTh.textContent = contents[0];
+        contents.splice(0,1);
+    }
+
+    contents.forEach((content) => {
+        let th = document.createElement('th');
+        th.textContent = content;
+        newHeaderRow.appendChild(th);
     });
-
-    table.querySelector("thead").appendChild(newHeaderRow);
+    table.querySelector("#table-header").appendChild(newHeaderRow);
 }
 
 function createRow(contents) {
-    let newRow = rowTemplate.firstElementChild.content;
-    let column = newRow.cloneNode(true);
+    let newRow = rowTemplate.cloneNode(true).content.querySelector("#tr-body");
+
+    let firstTd = newRow.querySelector("td");
+    if (firstTd) {
+        firstTd.textContent = contents[0];
+        contents.splice(0,1);
+    }
 
     contents.forEach((content) => {
-        const element = column.clone();
-        element.firstElementChild.innerHTML = content;
-        rowTemplate.appendChild(element);
+        let td = document.createElement('td');
+        td.textContent = content;
+        newRow.appendChild(td);
     });
-
-    // Append the new row to the tbody
     table.querySelector("tbody").appendChild(newRow);
 }
