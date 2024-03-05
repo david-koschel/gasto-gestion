@@ -2,14 +2,114 @@ body {
   background-color: #1F2937;
   padding: 0;
   margin: 0;
-  & header {
-    background: red;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Establecer la altura mínima del cuerpo para que ocupe toda la ventana */
+}
+
+header {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
   }
-  & footer {
-    position: absolute;
-    bottom: 0;
+
+  .logo {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
   }
-  #content {
-    padding: 2rem;
+
+  .nav-button {
+    background-color: transparent;
+    color: #ffc107;
+    border: 2px solid #ffc107;
+    padding: 10px 20px;
+    margin: 0.3rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   }
+
+  .nav-button:hover {
+    background: none;
+    color: rgba(176, 132, 9, 0.93);
+  }
+}
+
+
+footer {
+  background-color: #1F2937; /* Color de fondo del footer */
+  color: #5555; /* Color del texto */
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto; /* Mover el footer hacia la parte inferior */
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+
+  & button {
+    background-color: transparent;
+    color: #0DE8B3;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  & div {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  & hr {
+    border: none;
+    border-bottom: 1px solid #0DE8B3; /* Cambiado a border-bottom */
+    width: 100%;
+    margin: 10px 0; /* Cambiado a margin-bottom */
+  }
+
+}
+
+#content {
+  padding: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #19202a;
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:first-child td {
+  border-top: 1px solid #ddd;
+}
+
+tr:not(:first-child) td {
+  border: none;
+  background-color: #1F2937;
+  color: white;
 }
