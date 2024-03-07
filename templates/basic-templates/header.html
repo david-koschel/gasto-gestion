@@ -1,12 +1,7 @@
-<head>
-    <link rel="stylesheet" type="text/css" href="../styles.css">
-    <title></title>
-</head>
-<body>
 <header>
     <div class="header-content">
         <div class="logo">
-            INICIO
+            <img src="/resources/icon.svg" alt="LOGO"/>
         </div>
         <nav>
             <div id="home-buttons">
@@ -16,7 +11,15 @@
             </div>
         </nav>
     </div>
-    <script src="header.js"></script>
-    <script>homeButtons(["test1", "test2", "test3"])</script>
+    <script>
+        const buttons = ["lorem ipsum", "lorem ipsum", "lorem ipsum"]
+
+        const parent = document.getElementById('home-buttons');
+        const template = parent.firstElementChild.content;
+        buttons.forEach(buttonName => {
+            const node = template.cloneNode(true);
+            node.firstElementChild.innerHTML = buttonName;
+            parent.appendChild(node);
+        })
+    </script>
 </header>
-</body>
