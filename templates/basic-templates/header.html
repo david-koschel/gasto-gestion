@@ -1,0 +1,25 @@
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <img src="/resources/icon.svg" alt="LOGO"/>
+        </div>
+        <nav>
+            <div id="home-buttons">
+                <template>
+                    <button class="nav-button">INICIO</button>
+                </template>
+            </div>
+        </nav>
+    </div>
+    <script>
+        const buttons = ["lorem ipsum", "lorem ipsum", "lorem ipsum"]
+
+        const parent = document.getElementById('home-buttons');
+        const template = parent.firstElementChild.content;
+        buttons.forEach(buttonName => {
+            const node = template.cloneNode(true);
+            node.firstElementChild.innerHTML = buttonName;
+            parent.appendChild(node);
+        })
+    </script>
+</header>
