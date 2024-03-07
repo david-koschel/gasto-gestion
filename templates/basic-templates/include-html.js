@@ -1,4 +1,6 @@
-async function includeHTML() {
+document.addEventListener("DOMContentLoaded", () => includeHTML())
+
+function includeHTML() {
     for (const element of document.querySelectorAll("[html-page]")) {
         fetch(element.getAttribute("html-page"))
             .then(response => response.ok ? response.text() : "CONTENT COULD NOT BE LOADED")

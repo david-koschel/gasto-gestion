@@ -2,9 +2,9 @@ let rowHeaderTemplate = document.getElementById('th-template');
 let rowTemplate = document.getElementById('tbody-template')
 let table = document.getElementById('table');
 
-createTableHeaders(["ID", "Name", "Profesión"]);
-createRow(["1", "Pablo", "Puto"]); // Example row with content
-createRow(["2", "David", "Tarado"]); // Another example row with content
+createTableHeaders(["LoremImpsum", "LoremImpsum", "LoremImpsum"]);
+createRow(["LoremImpsum", "LoremImpsum", "LoremImpsum"]);
+createRow(["LoremImpsum", "LoremImpsum", "LoremImpsum"]);
 
 function createTableHeaders(contents) {
     let newHeaderRow = rowHeaderTemplate.content.querySelector("#tr-header");
