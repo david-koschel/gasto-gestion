@@ -23,23 +23,6 @@ header {
     align-items: center;
     width: 80%;
   }
-
-  .nav-button {
-    background-color: transparent;
-    color: #ffc107;
-    border: 2px solid #ffc107;
-    padding: 10px 20px;
-    margin: 0.3rem;
-    font-size: 1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  }
-
-  .nav-button:hover {
-    background: none;
-    color: rgba(176, 132, 9, 0.93);
-  }
 }
 
 footer {
@@ -78,21 +61,24 @@ footer {
 
 .button-container {
   text-align: center;
-  & button {
+  display: flex;
+  gap: .6rem;
+  button {
     background-color: transparent;
     color: #ffc107;
     border: 2px solid #ffc107;
     padding: 10px 20px;
-    margin: 0.3rem;
     font-size: 1rem;
     border-radius: 10px;
     cursor: pointer;
     transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-
     &:hover {
       background: none;
       color: rgba(176, 132, 9, 0.93);
     }
+  }
+  &.end {
+    justify-content: end;
   }
 }
 
