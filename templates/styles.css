@@ -116,3 +116,28 @@ tr:not(:first-child) td {
   background-color: #1F2937;
   color: white;
 }
+input {
+  border: 0;
+  background: transparent;
+  border-bottom: solid #778899;
+  color: white;
+  &::placeholder {
+    color: white;
+  }
+}
+
+.confirmar {
+  background-color: transparent;
+  color: #ffc107;
+  border: 2px solid #ffc107;
+  padding: 10px 20px;
+  margin: 0.3rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+  &:hover { 
+    color: rgba(176, 132, 9, 0.93);
+  }
+}
