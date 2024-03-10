@@ -5,6 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: Arial, serif;
 }
 
 header {
@@ -92,52 +93,57 @@ table {
   font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
-}
+  th,
+  td {
+    padding: 12px 15px;
+    text-align: left;
+  }
 
-th,
-td {
-  padding: 12px 15px;
-  text-align: left;
-}
+  th {
+    background-color: #19202a;
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+  }
 
-th {
-  background-color: #19202a;
-  color: #fff;
-  font-weight: bold;
-  border-bottom: 1px solid #ddd;
-}
+  tr:first-child td {
+    border-top: 1px solid #ddd;
+  }
 
-tr:first-child td {
-  border-top: 1px solid #ddd;
-}
-
-tr:not(:first-child) td {
-  border: none;
-  background-color: #1F2937;
-  color: white;
-}
-input {
-  border: 0;
-  background: transparent;
-  border-bottom: solid #778899;
-  color: white;
-  &::placeholder {
+  tr:not(:first-child) td {
+    border: none;
+    background-color: #1F2937;
     color: white;
   }
+
 }
 
-.confirmar {
-  background-color: transparent;
-  color: #ffc107;
-  border: 2px solid #ffc107;
-  padding: 10px 20px;
-  margin: 0.3rem;
-  font-size: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 
-  &:hover { 
-    color: rgba(176, 132, 9, 0.93);
+#form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  #input-parent {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    svg {
+      font-size: 38px;
+    }
+    input {
+      border: 0;
+      background: transparent;
+      border-bottom: solid #778899;
+      color: white;
+      width: 100%;
+      font-size: 16px;
+      &:focus-visible {
+        border-bottom: solid #04d2ff;
+        outline: none;
+      }
+      &::placeholder {
+        color: white;
+      }
+    }
   }
 }

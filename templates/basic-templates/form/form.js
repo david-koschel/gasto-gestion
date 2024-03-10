@@ -1,4 +1,4 @@
-const inputContainer = document.getElementById("input-container");
+const inputContainer = document.getElementById("form-container");
 const formTemplate = inputContainer.querySelector("#form-input-template").content;
 
 const inputData = [
