@@ -6,6 +6,11 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: Arial, serif;
+  position: relative;
+  &::after {
+      content: '';
+      padding-bottom: 8rem;
+  }
 }
 
 header {
@@ -27,11 +32,11 @@ header {
 }
 
 footer {
-  background-color: #1F2937; /* Color de fondo del footer */
-  color: #5555; /* Color del texto */
+  background-color: #1F2937;
+  color: #5555;
   padding: 20px 0;
   text-align: center;
-  margin-top: auto; /* Mover el footer hacia la parte inferior */
+  margin-top: auto;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -84,6 +89,7 @@ footer {
 }
 
 .content-container {
+  color: white;
   padding: 2rem 6rem;
   h2 {
     text-align: center;
