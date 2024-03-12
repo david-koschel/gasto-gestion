@@ -1,0 +1,12 @@
+{
+  "header": {
+    "home": [
+      "Inicio de sesión",
+      "Crea cuenta"
+    ],
+    "login": [
+      "Inicio",
+      "Crea cuenta"
+    ]
+  }
+}
