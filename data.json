@@ -1,12 +1,48 @@
 {
   "header": {
-    "home": [
-      "Inicio de sesión",
-      "Crea cuenta"
+    "public-pages": [
+      {
+        "name": "INICIO",
+        "link": "home.html"
+      },
+      {
+        "name": "INICIAR SESIÓN",
+        "link": "templates/table-menu.html"
+      },
+      {
+        "name": "REGISTRARSE",
+        "link": "templates/table-menu.html"
+      }
     ],
-    "login": [
-      "Inicio",
-      "Crea cuenta"
+    "sign-up": [
+      {
+        "name": "INICIO",
+        "link": "home.html"
+      },
+      {
+        "name": "INICIAR SESIÓN",
+        "link": "templates/table-menu.html"
+      }
+    ],
+    "log-in": [
+      {
+        "name": "INICIO",
+        "link": "home.html"
+      },
+      {
+        "name": "REGISTRARSE",
+        "link": "templates/table-menu.html"
+      }
+    ],
+    "user": [
+      {
+        "name": "INICIO",
+        "link": "home.html"
+      },
+      {
+        "name": "CERRAR SESIÓN",
+        "link": "templates/table-menu.html"
+      }
     ]
   }
 }

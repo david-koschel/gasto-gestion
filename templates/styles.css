@@ -69,7 +69,8 @@ footer {
   text-align: center;
   display: flex;
   gap: .6rem;
-  button {
+  & button, & a {
+    text-decoration: none;
     background-color: transparent;
     color: #ffc107;
     border: 2px solid #ffc107;
