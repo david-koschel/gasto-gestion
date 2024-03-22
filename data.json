@@ -7,7 +7,7 @@
       },
       {
         "name": "INICIAR SESIÓN",
-        "link": "templates/table-menu.html"
+        "link": "home.html"
       },
       {
         "name": "REGISTRARSE",
