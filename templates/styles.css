@@ -9,7 +9,7 @@ body {
   position: relative;
   &::after {
       content: '';
-      padding-bottom: 8rem;
+      padding-bottom: 10rem;
   }
 }
 
@@ -29,6 +29,10 @@ header {
     align-items: center;
     width: 80%;
   }
+}
+
+h1, h2, h3, p{
+  color: white;
 }
 
 footer {
@@ -155,5 +159,33 @@ table {
         color: white;
       }
     }
+  }
+}
+
+.card-home-container{
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (max-width: 425px){
+    flex-direction: column;
+  }
+}
+
+.card-home {
+  border-radius: 10px;
+  background-color: #2b405d;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  white-space: pre-line;
+  text-decoration: none;
+  width: 200px;
+  height: 250px;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 14px;
+
+  label {
+    cursor: inherit;
   }
 }
