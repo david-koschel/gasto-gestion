@@ -14,17 +14,16 @@ function getUsernames() {
     return fetch("/data.json")
         .then(result => result.json())
         .then(json => json.users);
-
 }
 
 async function login(username, password) {
     const usernames = await getUsernames();
-    const existingUser = usernames.find(user => user.username === username && user.password === password)
+    const existingUser = usernames.find(user => user.email === username && user.password === password);
     if (existingUser) {
-        localStorage.setItem("logged-in", existingUser.username);
-        window.location.href = "home.html";
+        localStorage.setItem("user-email", existingUser.email);
+        window.location.href = "/gasto-gestion/web-pages/user-home/user-home.html";
     } else {
-        alert("Usuario o contraseña incorrectos");
+        alert("Correo electrónico o contraseña incorrectos");
     }
 }
 

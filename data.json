@@ -3,11 +3,11 @@
     "public-pages": [
       {
         "name": "INICIO",
-        "link": "home.html"
+        "link": "/gasto-gestion/web-pages/home/home.html"
       },
       {
         "name": "INICIAR SESIÓN",
-        "link": "log-in.html"
+        "link": "/gasto-gestion/web-pages/log-in/log-in.html"
       },
       {
         "name": "REGISTRARSE",
@@ -17,17 +17,17 @@
     "sign-up": [
       {
         "name": "INICIO",
-        "link": "home.html"
+        "link": "/gasto-gestion/web-pages/home/home.html"
       },
       {
         "name": "INICIAR SESIÓN",
-        "link": "templates/table-menu.html"
+        "link": "/gasto-gestion/web-pages/log-in/log-in.html"
       }
     ],
     "log-in": [
       {
         "name": "INICIO",
-        "link": "home.html"
+        "link": "/gasto-gestion/web-pages/home/home.html"
       },
       {
         "name": "REGISTRARSE",
@@ -37,11 +37,11 @@
     "user": [
       {
         "name": "INICIO",
-        "link": "home.html"
+        "link": "/gasto-gestion/web-pages/user-home/user-home.html"
       },
       {
         "name": "CERRAR SESIÓN",
-        "link": "templates/table-menu.html"
+        "link": "/gasto-gestion/web-pages/home/home.html?log-out=true"
       }
     ]
   },
@@ -65,7 +65,8 @@
   },
   "users": [
     {
-      "username": "test@mail",
+      "username": "Juan23",
+      "email": "test@mail",
       "password": "test@mail"
     }
   ]
