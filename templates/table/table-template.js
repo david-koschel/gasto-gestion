@@ -1,13 +1,6 @@
-let rowHeaderTemplate = document.getElementById('th-template');
-let rowTemplate = document.getElementById('tbody-template')
-let table = document.getElementById('table');
-
-createTableHeaders(["LoremImpsum", "LoremImpsum", "LoremImpsum"]);
-createRow(["LoremImpsum", "LoremImpsum", "LoremImpsum"]);
-createRow(["LoremImpsum", "LoremImpsum", "LoremImpsum"]);
-
 function createTableHeaders(contents) {
-    let newHeaderRow = rowHeaderTemplate.content.querySelector("#tr-header");
+    const rowHeaderTemplate = document.getElementById('th-template');
+    const newHeaderRow = rowHeaderTemplate.content.getElementById('tr-header');
 
     let firstTh = newHeaderRow.querySelector("th");
     if (firstTh) {
@@ -18,13 +11,13 @@ function createTableHeaders(contents) {
     contents.forEach((content) => {
         let th = document.createElement('th');
         th.textContent = content;
-        newHeaderRow.appendChild(th);
+        newHeaderRow.insertBefore(th, newHeaderRow.querySelector("#last-th"));
     });
-    table.querySelector("#table-header").appendChild(newHeaderRow);
+    document.getElementById('table').querySelector("#table-header").appendChild(newHeaderRow);
 }
 
 function createRow(contents) {
-    let newRow = rowTemplate.cloneNode(true).content.querySelector("#tr-body");
+    let newRow = document.getElementById('tbody-template').cloneNode(true).content.querySelector("#tr-body");
 
     let firstTd = newRow.querySelector("td");
     if (firstTd) {
@@ -35,7 +28,7 @@ function createRow(contents) {
     contents.forEach((content) => {
         let td = document.createElement('td');
         td.textContent = content;
-        newRow.appendChild(td);
+        newRow.insertBefore(td, newRow.querySelector("#last-td"));
     });
-    table.querySelector("tbody").appendChild(newRow);
+    document.getElementById('table').querySelector("tbody").appendChild(newRow);
 }

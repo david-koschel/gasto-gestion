@@ -1,6 +1,6 @@
 const parent = document.getElementById('home-buttons');
 const template = document.getElementById('button-template');
-const headerScript = document.getElementById('header-script')
+const headerScript = document.getElementById('header-script');
 
 loadButtonData();
 
@@ -12,7 +12,7 @@ function loadButtonData() {
                 const node = template.content.cloneNode(true);
                 const button = node.querySelector('a');
                 button.innerText = buttonData.name;
-                button.href = buttonData.link
+                button.href = buttonData.link;
                 parent.appendChild(node);
             })
         );

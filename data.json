@@ -96,7 +96,86 @@
     {
       "username": "Juan23",
       "email": "test@mail",
-      "password": "test@mail"
+      "password": "test@mail",
+      "invoiceList": [
+        {
+          "commerce": "Mercadona",
+          "concept": "Compra Fin de Semana",
+          "expenseType": "Alimentación",
+          "date": "2024-03-30T18:33:10.882Z",
+          "quantity": "23.1€"
+        },
+        {
+          "commerce": "Carrefour",
+          "concept": "Compra Mensual",
+          "expenseType": "Alimentación",
+          "date": "2024-03-29T15:20:45.123Z",
+          "quantity": "45.7€"
+        },
+        {
+          "commerce": "Amazon",
+          "concept": "Compra Online",
+          "expenseType": "Electrónicos",
+          "date": "2024-03-28T12:10:05.456Z",
+          "quantity": "156.89€"
+        },
+        {
+          "commerce": "IKEA",
+          "concept": "Muebles para el Hogar",
+          "expenseType": "Hogar",
+          "date": "2024-03-27T09:05:30.789Z",
+          "quantity": "289.99€"
+        },
+        {
+          "commerce": "Decathlon",
+          "concept": "Artículos Deportivos",
+          "expenseType": "Deportes",
+          "date": "2024-03-26T16:40:55.321Z",
+          "quantity": "75.6€"
+        }
+      ]
+    },
+    {
+      "username": "Pepe_Hernandez",
+      "email": "test2@mail",
+      "password": "lo34a",
+      "invoiceList": [
+        {
+          "commerce": "Lidl",
+          "concept": "Compra Semanal",
+          "expenseType": "Alimentación",
+          "date": "2024-03-30T11:25:10.345Z",
+          "quantity": "32.75€"
+        },
+        {
+          "commerce": "Apple Store",
+          "concept": "Nuevo iPhone",
+          "expenseType": "Tecnología",
+          "date": "2024-03-29T14:15:20.567Z",
+          "quantity": "1099.99€"
+        },
+        {
+          "commerce": "Zara",
+          "concept": "Ropa de Primavera",
+          "expenseType": "Moda",
+          "date": "2024-03-28T17:30:30.789Z",
+          "quantity": "156.45€"
+        },
+        {
+          "commerce": "Home Depot",
+          "concept": "Materiales de Construcción",
+          "expenseType": "Hogar",
+          "date": "2024-03-27T09:45:40.123Z",
+          "quantity": "289.75€"
+        },
+        {
+          "commerce": "Nike",
+          "concept": "Zapatillas Deportivas",
+          "expenseType": "Deportes",
+          "date": "2024-03-26T13:55:50.234Z",
+          "quantity": "89.99€"
+        }
+      ]
     }
   ]
 }
