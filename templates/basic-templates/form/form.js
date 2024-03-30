@@ -27,6 +27,7 @@ function loadFormData() {
 
                 inputContainer.querySelector("#input-parent").appendChild(element);
             });
+            document.dispatchEvent(new Event("form-build-complete"));
         });
 }
 
