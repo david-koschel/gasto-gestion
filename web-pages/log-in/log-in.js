@@ -1,5 +1,8 @@
 document.querySelector("#log-in-form").addEventListener('submit', onSubmit);
 document.querySelector("#log-in-form").addEventListener('invalid', onInvalid, true);
+document.addEventListener("DOMContentLoaded", () => {
+    if (userIsLoggedIn()) navigateToUserHome();
+});
 
 function onSubmit(event) {
     event.preventDefault();
@@ -10,18 +13,11 @@ function onSubmit(event) {
     login(formData.get("username"), formData.get("password"));
 }
 
-function getUsernames() {
-    return fetch("/data.json")
-        .then(result => result.json())
-        .then(json => json.users);
-}
-
 async function login(username, password) {
-    const usernames = await getUsernames();
-    const existingUser = usernames.find(user => user.email === username && user.password === password);
-    if (existingUser) {
+    const existingUser = await getUserData(username);
+    if (existingUser && existingUser.password === password) {
         localStorage.setItem("user-email", existingUser.email);
-        window.location.href = "/gasto-gestion/web-pages/user-home/user-home.html";
+        navigateToUserHome();
     } else {
         alert("Correo electrónico o contraseña incorrectos");
     }

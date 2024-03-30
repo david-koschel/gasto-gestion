@@ -2,36 +2,23 @@ document.querySelector("#submit-button").addEventListener('click', checkPassword
 document.querySelector("#profile-form").addEventListener('submit', onSubmit);
 document.querySelector("#profile-form").addEventListener('invalid', onInvalid, true);
 document.addEventListener("form-build-complete", () => {
-    const user = localStorage.getItem("user-email");
-    if (user) {
-        getUserData(user);
+    if (userIsLoggedIn()) {
+        getUserData();
     } else {
-        logout();
+        logOutUser();
     }
 });
 
-
-function getUsernames() {
-    return fetch("/data.json")
-        .then(result => result.json())
-        .then(json => json.users);
-}
-
-async function getUserData(email) {
-    const usernames = await getUsernames();
-    const existingUser = usernames.find(user => user.email = email);
+async function getUserData() {
+    const existingUser = await getLoggedUserData();
     if (existingUser) {
         document.querySelector("#username").value = existingUser.username;
         document.querySelector("#email").value = existingUser.email;
         document.querySelector("#password").value = existingUser.password;
         document.querySelector("#repeat-password").value = existingUser.password;
     } else {
-        logout();
+        logOutUser();
     }
-}
-
-function logout() {
-    window.location.href = "/gasto-gestion/web-pages/home/home.html?log-out=true";
 }
 
 function onInvalid(event) {
