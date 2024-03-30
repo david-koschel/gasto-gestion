@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Gasto Gestión</title>
-    <link rel="stylesheet" href="/templates/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+<script src="/shared/user-auth-service.js"></script>
 <script>
-    window.location.href = "web-pages/home.html";
+    if (userIsLoggedIn()) {
+        navigateToUserHome();
+    } else {
+        navigateToGeneralHome();
+    }
 </script>
 </body>
 </html>
