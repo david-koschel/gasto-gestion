@@ -10,7 +10,7 @@ body {
   color: white;
   &::after {
       content: '';
-      padding-bottom: 8rem;
+      padding-bottom: 10rem;
   }
 }
 
@@ -34,6 +34,10 @@ header {
     align-items: center;
     width: 80%;
   }
+}
+
+h1, h2, h3, p{
+  color: white;
 }
 
 footer {
@@ -152,6 +156,30 @@ table {
     svg {
       font-size: 38px;
     }
+  }
+}
+
+.card-home-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.card-home {
+  border-radius: 10px;
+  background-color: #2b405d;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  white-space: pre-line;
+  text-decoration: none;
+  width: 200px;
+  height: 250px;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 14px;
+
+  label {
+    cursor: inherit;
   }
 }
 
