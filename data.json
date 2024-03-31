@@ -51,7 +51,7 @@
         "id": "username",
         "label": "Nombre de usuario",
         "path": "M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z",
-        "required": true      
+        "required": true
       },
       {
         "id": "email",
@@ -163,39 +163,59 @@
       "password": "test@mail",
       "invoiceList": [
         {
+          "invoiceNumber": 1,
           "commerce": "Mercadona",
           "concept": "Compra Fin de Semana",
           "expenseType": "Alimentación",
           "date": "2024-03-30T18:33:10.882Z",
-          "quantity": "23.1€"
+          "quantity": 23.1,
+          "paymentType": "Tarjeta",
+          "cif": "A12345678",
+          "description": "Compra habitual de productos de alimentación."
         },
         {
+          "invoiceNumber": 2,
           "commerce": "Carrefour",
           "concept": "Compra Mensual",
           "expenseType": "Alimentación",
           "date": "2024-03-29T15:20:45.123Z",
-          "quantity": "45.7€"
+          "quantity": 45.7,
+          "paymentType": "Efectivo",
+          "cif": "B98765432",
+          "description": "Compra mensual de alimentos para el hogar."
         },
         {
+          "invoiceNumber": 3,
           "commerce": "Amazon",
           "concept": "Compra Online",
           "expenseType": "Electrónicos",
           "date": "2024-03-28T12:10:05.456Z",
-          "quantity": "156.89€"
+          "quantity": 156.89,
+          "paymentType": "Tarjeta",
+          "cif": "C24680192",
+          "description": "Pedido de electrónicos realizado en línea."
         },
         {
+          "invoiceNumber": 4,
           "commerce": "IKEA",
           "concept": "Muebles para el Hogar",
           "expenseType": "Hogar",
           "date": "2024-03-27T09:05:30.789Z",
-          "quantity": "289.99€"
+          "quantity": 289.99,
+          "paymentType": "Tarjeta",
+          "cif": "D98765432",
+          "description": "Compra de muebles y accesorios para el hogar."
         },
         {
+          "invoiceNumber": 5,
           "commerce": "Decathlon",
           "concept": "Artículos Deportivos",
           "expenseType": "Deportes",
           "date": "2024-03-26T16:40:55.321Z",
-          "quantity": "75.6€"
+          "quantity": 75.6,
+          "paymentType": "Tarjeta",
+          "cif": "E12345678",
+          "description": "Adquisición de equipos deportivos y ropa."
         }
       ]
     },
@@ -205,39 +225,59 @@
       "password": "lo34a",
       "invoiceList": [
         {
+          "invoiceNumber": 1,
           "commerce": "Lidl",
           "concept": "Compra Semanal",
           "expenseType": "Alimentación",
           "date": "2024-03-30T11:25:10.345Z",
-          "quantity": "32.75€"
+          "quantity": 32.75,
+          "paymentType": "Tarjeta",
+          "cif": "F24680192",
+          "description": "Compra de productos frescos para la semana."
         },
         {
+          "invoiceNumber": 2,
           "commerce": "Apple Store",
           "concept": "Nuevo iPhone",
           "expenseType": "Tecnología",
           "date": "2024-03-29T14:15:20.567Z",
-          "quantity": "1099.99€"
+          "quantity": 1099.99,
+          "paymentType": "Tarjeta",
+          "cif": "G13579246",
+          "description": "Adquisición del último modelo de iPhone."
         },
         {
+          "invoiceNumber": 3,
           "commerce": "Zara",
           "concept": "Ropa de Primavera",
           "expenseType": "Moda",
           "date": "2024-03-28T17:30:30.789Z",
-          "quantity": "156.45€"
+          "quantity": 156.45,
+          "paymentType": "Efectivo",
+          "cif": "H98765432",
+          "description": "Compra de ropa de temporada para la primavera."
         },
         {
+          "invoiceNumber": 4,
           "commerce": "Home Depot",
           "concept": "Materiales de Construcción",
           "expenseType": "Hogar",
           "date": "2024-03-27T09:45:40.123Z",
-          "quantity": "289.75€"
+          "quantity": 289.75,
+          "paymentType": "Tarjeta",
+          "cif": "I12345678",
+          "description": "Compra de materiales para proyectos de construcción."
         },
         {
+          "invoiceNumber": 5,
           "commerce": "Nike",
           "concept": "Zapatillas Deportivas",
           "expenseType": "Deportes",
           "date": "2024-03-26T13:55:50.234Z",
-          "quantity": "89.99€"
+          "quantity": 89.99,
+          "paymentType": "Tarjeta",
+          "cif": "J98765432",
+          "description": "Adquisición de nuevas zapatillas para correr."
         }
       ]
     }

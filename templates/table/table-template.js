@@ -16,19 +16,16 @@ function createTableHeaders(contents) {
     document.getElementById('table').querySelector("#table-header").appendChild(newHeaderRow);
 }
 
-function createRow(contents) {
+function createRow(contents, dataId) {
     let newRow = document.getElementById('tbody-template').cloneNode(true).content.querySelector("#tr-body");
+    newRow.setAttribute("data-id", dataId);
 
     let firstTd = newRow.querySelector("td");
-    if (firstTd) {
-        firstTd.textContent = contents[0];
-        contents.splice(0,1);
-    }
-
     contents.forEach((content) => {
-        let td = document.createElement('td');
+        let td = firstTd.cloneNode(true);
         td.textContent = content;
         newRow.insertBefore(td, newRow.querySelector("#last-td"));
     });
+    firstTd.remove();
     document.getElementById('table').querySelector("tbody").appendChild(newRow);
 }

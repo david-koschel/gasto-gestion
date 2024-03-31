@@ -166,3 +166,8 @@ table {
     }
   }
 }
+
+#data-container .text-container {
+  border-bottom: solid #778899;
+  margin-bottom: 1rem;
+}
