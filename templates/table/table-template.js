@@ -3,16 +3,13 @@ function createTableHeaders(contents) {
     const newHeaderRow = rowHeaderTemplate.content.getElementById('tr-header');
 
     let firstTh = newHeaderRow.querySelector("th");
-    if (firstTh) {
-        firstTh.textContent = contents[0];
-        contents.splice(0,1);
-    }
-
     contents.forEach((content) => {
-        let th = document.createElement('th');
-        th.textContent = content;
+        let th = firstTh.cloneNode(true);
+        th.textContent = content.header;
+        if (content.class) th.classList = content.class;
         newHeaderRow.insertBefore(th, newHeaderRow.querySelector("#last-th"));
     });
+    firstTh.remove();
     document.getElementById('table').querySelector("#table-header").appendChild(newHeaderRow);
 }
 
@@ -23,7 +20,9 @@ function createRow(contents, dataId) {
     let firstTd = newRow.querySelector("td");
     contents.forEach((content) => {
         let td = firstTd.cloneNode(true);
-        td.textContent = content;
+        td.querySelector("span").textContent = content.data;
+        td.querySelector("label").textContent = content.header;
+        if (content.class) td.classList = content.class;
         newRow.insertBefore(td, newRow.querySelector("#last-td"));
     });
     firstTd.remove();

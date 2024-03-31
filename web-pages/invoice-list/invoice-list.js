@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("table-build-complete", () => {
-    createTableHeaders(["Comercio", "Concepto", "Tipo de Gasto", "Fecha", "Cantidad"]);
+    createTableHeaders(getListHeaders());
     loadTableData();
 });
 
@@ -25,6 +25,22 @@ async function loadTableData() {
     });
 }
 
+function getListHeaders() {
+    return [
+        {header: "Comercio"},
+        {header: "Concepto", class: 'd-none d-lg-table-cell'},
+        {header: "Tipo de Gasto"},
+        {header: "Fecha"},
+        {header: "Cantidad"}
+    ];
+}
+
 function getListData(invoice) {
-    return [invoice.commerce, invoice.concept, invoice.expenseType, invoice.date, `${invoice.quantity}€`];
+    return [
+        {data: invoice.commerce, header: "Comercio"},
+        {data: invoice.concept, class: 'd-none d-lg-table-cell', header: "Concepto"},
+        {data: invoice.expenseType, header: "Tipo de Gasto"},
+        {data: invoice.date, header: "Fecha"},
+        {data: `${invoice.quantity}€`, header: "Cantidad"}
+    ];
 }
