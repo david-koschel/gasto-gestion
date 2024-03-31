@@ -1,32 +1,29 @@
 const script = document.createElement('script');
 script.src = "https://cdn.jsdelivr.net/npm/chart.js";
-script.onload = () => loadChart();
+script.onload = () => document.dispatchEvent(new Event("chart-script-loaded"));
 document.body.appendChild(script);
 
 
-function loadChart() {
+function loadChart(labels, data) {
     const ctx = document.getElementById('bar-chart');
     Chart.defaults.color = '#fff';
 
-    const data = {
-        labels: ['Lorem', 'impsum', 'Lorem', 'impsum', 'Lorem', 'impsum'],
+    const chartData = {
+        labels: labels,
         datasets: [{
             showLabel: false,
-            data: [200, 400, 300, 400, 500, 460],
+            data: data,
             backgroundColor: ['#BCEF7D', '#54B42E', '#417324']
         }],
     };
 
     new Chart(ctx, {
         type: 'bar',
-        data: data,
+        data: chartData,
         options: {
             plugins: {
                 legend: {
                     display: false
-                },
-                tooltip: {
-                    enabled: false
                 }
             }
         }
