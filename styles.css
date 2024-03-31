@@ -132,14 +132,6 @@ footer {
   }
 }
 
-.content-container {
-  color: white;
-  padding: 2rem 6rem;
-  h2 {
-    text-align: center;
-  }
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -186,11 +178,6 @@ table {
   }
 }
 
-.card-home-container{
-  display: flex;
-  flex-direction: row;
-}
-
 .card-home {
   border-radius: 10px;
   background-color: #2b405d;
@@ -199,12 +186,10 @@ table {
   justify-content: center;
   white-space: pre-line;
   text-decoration: none;
-  width: 200px;
-  height: 250px;
+  width: 260px;
+  height: 350px;
   font-size: 16px;
   line-height: 18px;
-  padding: 14px;
-
   label {
     cursor: inherit;
   }
