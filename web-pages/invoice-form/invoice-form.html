@@ -12,50 +12,50 @@
 <div html-page="/templates/header/header.html" json-data="user"></div>
 <div class="container">
     <h2 id="title">Editar Factura</h2>
-    <div id="data-container" class="row px-5 pt-5">
-        <div class="col-6">
+    <div id="data-container" class="row pt-5">
+        <div class="col-12 col-sm-6">
             <div class="d-flex flex-column input-container">
                 <label class="fw-bold">Nº de Factura</label>
                 <input disabled id="invoiceNumber">
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
             <div class="d-flex flex-column">
                 <label class="fw-bold">Forma de pago</label>
                 <input id="paymentType">
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
             <div class="d-flex flex-column">
                 <label class="fw-bold">Comercio</label>
                 <input id="commerce">
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
             <div class="d-flex flex-column">
                 <label class="fw-bold">CIF del comercio</label>
                 <input id="cif">
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
             <div class="d-flex flex-column">
                 <label class="fw-bold">Concepto</label>
                 <input id="concept">
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
             <div class="d-flex flex-column">
                 <label class="fw-bold">Tipo de gasto</label>
                 <input id="expenseType">
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
             <div class="d-flex flex-column">
                 <label class="fw-bold">Fecha</label>
                 <input  type="datetime-local" id="date">
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
             <div class="d-flex flex-column">
                 <label class="fw-bold">Cantidad</label>
                 <input type="number" min="0" id="quantity">
@@ -64,7 +64,7 @@
         <div class="col-12">
             <div class="d-flex flex-column">
                 <label class="fw-bold">Descripción</label>
-                <input id="description">
+                <textarea rows="3" id="description"></textarea>
             </div>
         </div>
     </div>

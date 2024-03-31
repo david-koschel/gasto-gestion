@@ -216,7 +216,7 @@ table {
 }
 
 #form-container #input-parent, #data-container {
-  input {
+  input, textarea {
     color-scheme: dark;
     border: 0;
     background: transparent;
