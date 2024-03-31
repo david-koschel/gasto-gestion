@@ -1,10 +1,11 @@
-const script = document.createElement('script');
-script.src = "https://cdn.jsdelivr.net/npm/chart.js";
-script.onload = () => document.dispatchEvent(new Event("chart-script-loaded"));
-document.body.appendChild(script);
+document.addEventListener("DOMContentLoaded", () => {
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/npm/chart.js";
+    script.onload = () => document.dispatchEvent(new Event("chart-script-loaded"));
+    document.body.appendChild(script);
+});
 
-
-function loadChart(labels, data) {
+function loadChart(labels, smallLabels, data) {
     const ctx = document.getElementById('bar-chart');
     Chart.defaults.color = '#fff';
 
@@ -28,4 +29,24 @@ function loadChart(labels, data) {
             }
         }
     });
+
+    const ctxSmall = ctx.cloneNode(true);
+    const container = document.getElementById('chart-container');
+    container.appendChild(ctxSmall);
+
+    new Chart(ctxSmall, {
+        type: 'bar',
+        data: {...chartData, labels: smallLabels},
+        options: {
+            indexAxis: 'y',
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+
+    ctx.classList = "d-none d-sm-block";
+    ctxSmall.classList = "d-sm-none";
 }

@@ -20,13 +20,22 @@ async function getData() {
     });
 
     const monthArray = Array.from(monthMap.keys()).sort();
-    loadChart(monthArray.map(month => monthYearToString(month)), monthArray.map(month => monthMap.get(month)));
+    loadChart(
+        monthArray.map(month => monthYearToString(month)),
+        monthArray.map(month => monthYearToSmallString(month)),
+        monthArray.map(month => monthMap.get(month))
+    );
 }
 
 function monthYearToString(monthYearNumber) {
     const month = monthYearNumber.toString().substring(4);
     const year = monthYearNumber.toString().substring(0, 4);
-    console.log((year));
     const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
     return `${months[+month]} ${year}`;
+}
+
+function monthYearToSmallString(monthYearNumber) {
+    const month = monthYearNumber.toString().substring(4);
+    const year = monthYearNumber.toString().substring(0, 2);
+    return `${+month + 1}/${year}`;
 }
