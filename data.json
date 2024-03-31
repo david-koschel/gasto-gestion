@@ -160,7 +160,7 @@
     {
       "username": "Juan23",
       "email": "test@mail",
-      "password": "test@mail",
+      "password": "test123",
       "invoiceList": [
         {
           "invoiceNumber": 1,
