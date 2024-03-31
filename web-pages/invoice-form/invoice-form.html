@@ -10,70 +10,71 @@
 <body>
 <div html-page="/templates/header/header.html" json-data="user"></div>
 <div class="container">
-    <h2 id="title">Factura Nº</h2>
+    <h2 id="title">Editar Factura</h2>
     <div id="data-container" class="row px-5 pt-5">
         <div class="col-6">
-            <div class="d-flex flex-column text-container">
+            <div class="d-flex flex-column input-container">
                 <label class="fw-bold">Nº de Factura</label>
-                <span id="invoiceNumber"></span>
+                <input disabled id="invoiceNumber">
             </div>
         </div>
         <div class="col-6">
-            <div class="d-flex flex-column text-container">
+            <div class="d-flex flex-column">
                 <label class="fw-bold">Forma de pago</label>
-                <span id="paymentType"></span>
+                <input id="paymentType">
             </div>
         </div>
         <div class="col-6">
-            <div class="d-flex flex-column text-container">
+            <div class="d-flex flex-column">
                 <label class="fw-bold">Comercio</label>
-                <span id="commerce"></span>
+                <input id="commerce">
             </div>
         </div>
         <div class="col-6">
-            <div class="d-flex flex-column text-container">
+            <div class="d-flex flex-column">
                 <label class="fw-bold">CIF del comercio</label>
-                <span id="cif"></span>
+                <input id="cif">
             </div>
         </div>
         <div class="col-6">
-            <div class="d-flex flex-column text-container">
+            <div class="d-flex flex-column">
                 <label class="fw-bold">Concepto</label>
-                <span id="concept"></span>
+                <input id="concept">
             </div>
         </div>
         <div class="col-6">
-            <div class="d-flex flex-column text-container">
+            <div class="d-flex flex-column">
                 <label class="fw-bold">Tipo de gasto</label>
-                <span id="expenseType"></span>
+                <input id="expenseType">
             </div>
         </div>
         <div class="col-6">
-            <div class="d-flex flex-column text-container">
+            <div class="d-flex flex-column">
                 <label class="fw-bold">Fecha</label>
-                <span id="date"></span>
+                <input  type="datetime-local" id="date">
             </div>
         </div>
         <div class="col-6">
-            <div class="d-flex flex-column text-container">
+            <div class="d-flex flex-column">
                 <label class="fw-bold">Cantidad</label>
-                <span id="quantity"></span>
+                <input type="number" min="0" id="quantity">
             </div>
         </div>
         <div class="col-12">
-            <div class="d-flex flex-column text-container">
+            <div class="d-flex flex-column">
                 <label class="fw-bold">Descripción</label>
-                <span id="description"></span>
+                <input id="description">
             </div>
         </div>
     </div>
     <div class="button-container justify-content-center mt-4">
-        <button onclick="onEditClick();">EDITAR</button>
+        <button id="edit-button" >GUARDAR</button>
+        <a class="cancel" href="/gasto-gestion/web-pages/invoice-list/invoice-list.html">CANCELAR</a>
     </div>
 </div>
 <div html-page="/templates/footer.html"></div>
 <script src="/shared/include-html.js"></script>
 <script src="/shared/user-auth-service.js"></script>
-<script src="invoice-detail.js"></script>
+<script src="invoice-form.js"></script>
 </body>
 </html>

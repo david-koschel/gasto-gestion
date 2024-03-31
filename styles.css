@@ -77,16 +77,23 @@ footer {
   & button, & a {
     text-decoration: none;
     background-color: transparent;
-    color: #ffc107;
+    color: rgb(255, 193, 7);
     border: 2px solid #ffc107;
     padding: 10px 20px;
     font-size: 1rem;
     border-radius: 10px;
     cursor: pointer;
     transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    &.cancel {
+      color: #EA3E3E;
+      border: 2px solid rgb(234, 62, 62);
+    }
     &:hover {
       background: none;
       color: rgba(176, 132, 9, 0.93);
+      &.cancel {
+        color: rgba(187, 13, 13, 0.93);
+      }
     }
   }
   &.end {
@@ -145,29 +152,33 @@ table {
     svg {
       font-size: 38px;
     }
-    input {
-      border: 0;
-      background: transparent;
-      border-bottom: solid #778899;
-      color: white;
-      width: 100%;
-      font-size: 16px;
-      &:focus-visible {
-        border-bottom: solid #04d2ff;
-        outline: none;
-      }
-      &.invalid&:invalid {
-        border-bottom: solid #ea3e3e;
-      }
-      &::placeholder {
-        color: white;
-        opacity: 60%;
-      }
-    }
   }
 }
 
-#data-container .text-container {
+#data-container .text-container, input {
   border-bottom: solid #778899;
   margin-bottom: 1rem;
+}
+
+#form-container #input-parent, #data-container {
+  input {
+    color-scheme: dark;
+    border: 0;
+    background: transparent;
+    border-bottom: solid #778899;
+    color: white;
+    width: 100%;
+    font-size: 16px;
+    &:focus-visible {
+      border-bottom: solid #04d2ff;
+      outline: none;
+    }
+    &.invalid&:invalid {
+      border-bottom: solid #ea3e3e;
+    }
+    &::placeholder {
+      color: white;
+      opacity: 60%;
+    }
+  }
 }

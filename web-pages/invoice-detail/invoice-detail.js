@@ -23,3 +23,8 @@ async function getInvoice(index) {
     if (invoice) return invoice;
     navigateToUserHome();
 }
+
+function onEditClick() {
+    const number = document.getElementById("invoiceNumber").textContent;
+    window.location.href = `/gasto-gestion/web-pages/invoice-form/invoice-form.html?number=${number}`;
+}
