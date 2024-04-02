@@ -1,0 +1,32 @@
+nav {
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto;
+  position: absolute;
+  width: 100%;
+  
+  bottom: 0;
+  min-height: 60px;
+
+  a {
+    text-decoration: none;
+    background-color: transparent;
+    color: #0DE8B3;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    @media screen and (max-width: 575px) {
+      padding: 5px;
+    }
+  }
+
+  & hr {
+    border: none;
+    border-bottom: 1px solid #0DE8B3;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+}
