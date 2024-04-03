@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {MenubarModule} from "primeng/menubar";
+import {UserService} from "../../shared/user.service";
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,13 @@ import {MenubarModule} from "primeng/menubar";
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
+  private userService  = inject(UserService);
+
+  ngOnInit(): void {
+    if (this.userService.userIsLoggedIn()) {
+      console.log("logged in");
+    }
+  }
 }
