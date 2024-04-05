@@ -3,6 +3,9 @@ import {CookiesPolicyComponent} from "./web-pages/cookies-policy/cookies-policy.
 import {PrivacyPolicyComponent} from "./web-pages/privacy-policy/privacy-policy.component";
 import { HomeComponent } from './components/home/home.component';
 import {LoginComponent} from "./components/login/login.component";
+import { UserTypeComponent } from './components/user-type/user-type.component';
+import { UserRegisterComponent } from './components/user-register/user-register.component';
+
 
 export const routes: Routes = [
   {
@@ -20,5 +23,6 @@ export const routes: Routes = [
   {
     path: "politica-privacidad",
     component: PrivacyPolicyComponent
-  }
+  },{path: "user-type", component: UserTypeComponent}, {path: "user-register", component: UserRegisterComponent}
+
 ];
