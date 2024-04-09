@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { UserTypeComponent } from './components/user-type/user-type.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { CompanyRegisterComponent } from './components/company-register/company-register.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 
@@ -32,6 +33,10 @@ export const routes: Routes = [
   {
     path: "company-register",
     component: CompanyRegisterComponent
+  },
+  {
+    path: "contact",
+    component: ContactComponent
   }
 
 ];
