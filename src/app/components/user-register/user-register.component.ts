@@ -34,3 +34,4 @@ export class UserRegisterComponent implements OnInit {
     return password !== rePassword ? {passwordsDoNotMatch: true} : null;
   };
 }
+

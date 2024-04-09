@@ -1,0 +1,29 @@
+<div class="container d-flex flex-column mb-1 align-items-center">
+    <h1 class="text-white mb-4">Regístrate</h1>
+        <div class="d-flex flex-column align-items-center">
+            <form [formGroup]="form">
+                <div class="mb-1">
+                    <label for="exampleInputPassword1" class="form-label">Nombre de Usuario</label>
+                    <input formControlName="userName" type="text" class="form-control">
+                  </div>
+                <div class="mb-1">
+                  <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+                  <input formControlName="email" type="email" class="form-control" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-1">
+                    <label for="exampleInputCIF1" class="form-label">CIF</label>
+                    <input formControlName="cif" type="text" class="form-control">
+                  </div>
+                <div class="mb-1">
+                  <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                  <input formControlName="password" type="password" class="form-control">
+                </div>
+                <div class="mb-1">
+                    <label for="exampleInputPassword1" class="form-label">Confirmar Contraseña</label>
+                    <input formControlName="rePassword" type="password" class="form-control" pInputText>
+                </div>
+                <button id="submit-button" class="btn btn-outline-warning rounded-4 mt-4" (click)="check()" >CONFIRMAR</button>  
+              </form>
+            <a style="color: #0DE8B3;" class="mt-4 fs-6" href="/gasto-gestion/web-pages/log-in/log-in.html">¿Ya está registrado? ¡Inicie sesión!</a>
+        </div>
+</div>

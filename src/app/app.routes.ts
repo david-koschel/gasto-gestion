@@ -4,6 +4,8 @@ import {PrivacyPolicyComponent} from "./web-pages/privacy-policy/privacy-policy.
 import { HomeComponent } from './components/home/home.component';
 import { UserTypeComponent } from './components/user-type/user-type.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { CompanyRegisterComponent } from './components/company-register/company-register.component';
+
 
 
 export const routes: Routes = [
@@ -18,6 +20,18 @@ export const routes: Routes = [
   {
     path: "politica-privacidad",
     component: PrivacyPolicyComponent
-  },{path: "user-type", component: UserTypeComponent}, {path: "user-register", component: UserRegisterComponent}
+  },
+  {
+    path: "user-type",
+    component: UserTypeComponent
+  },
+  {
+    path: "user-register",
+    component: UserRegisterComponent
+  },
+  {
+    path: "company-register",
+    component: CompanyRegisterComponent
+  }
 
 ];
