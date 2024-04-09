@@ -1,0 +1,22 @@
+.card-home {
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    white-space: pre-line;
+    text-decoration: none;
+    width: 260px;
+    height: 350px;
+    font-size: 16px;
+    line-height: 18px;
+    background-size: cover;
+    background-position: center;
+    label {
+      background-color: #485c73;
+      padding: .5rem;
+      border-radius: 10px;
+      cursor: inherit;
+      font-weight: bold;
+    }
+  }
+
