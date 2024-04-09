@@ -1,16 +1,29 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
+import {BehaviorSubject} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class AuthService {
 
-  userIsLoggedIn() {
-    return !!localStorage.getItem("user-email");
+  private router = inject(Router);
+
+  private userIsLoggedInSubject = new BehaviorSubject<boolean>(this.userIsLoggedIn);
+  readonly userIsLoggedIn$ = this.userIsLoggedInSubject.asObservable();
+
+  get userIsLoggedIn(): boolean {
+    return this.userIsLoggedInSubject?.value;
+  }
+
+  logInUser(username: string, password: string) {
+    this.userIsLoggedInSubject.next(true);
   }
 
   logOutUser() {
     localStorage.removeItem("user-email");
+    this.userIsLoggedInSubject.next(false);
+    this.router.navigate(["home"]);
     // if (!noNavigation) window.location.href = "/gasto-gestion/web-pages/home/home.html?log-out=true";
   }
 

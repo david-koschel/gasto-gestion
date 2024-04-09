@@ -8,7 +8,7 @@ import { UserRegisterComponent } from './components/user-register/user-register.
 
 export const routes: Routes = [
   {
-  	path: "home", 
+  	path: "home",
   	component: HomeComponent
   },
   {
@@ -18,6 +18,13 @@ export const routes: Routes = [
   {
     path: "politica-privacidad",
     component: PrivacyPolicyComponent
-  },{path: "user-type", component: UserTypeComponent}, {path: "user-register", component: UserRegisterComponent}
-
+  },
+  {
+    path: "user-type",
+    component: UserTypeComponent
+  },
+  {
+    path: "user-register",
+    component: UserRegisterComponent
+  }
 ];

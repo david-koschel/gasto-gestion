@@ -1,3 +1,10 @@
 <nav>
-  <p-menubar></p-menubar>
+  <div class="d-flex justify-content-between mx-3">
+    <img ngSrc="assets/icon.svg" alt="logo" height="120" width="120" priority>
+    <div class="d-flex align-items-center gap-4">
+      @for (button of navButtons; track $index) {
+        <a class="custom-button" [routerLink]="button.link">{{button.name}}</a>
+      }
+    </div>
+  </div>
 </nav>
