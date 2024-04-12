@@ -4,6 +4,7 @@ import { PrivacyPolicyComponent } from "./web-pages/privacy-policy/privacy-polic
 import { HomeComponent } from './components/home/home.component';
 import { UserTypeComponent } from './components/user-type/user-type.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { LoginComponent } from "./components/login/login.component";
 
 
 export const routes: Routes = [
@@ -26,6 +27,10 @@ export const routes: Routes = [
   {
     path: "user-register",
     component: UserRegisterComponent
+  },
+  {
+    path: "log-in",
+    component: LoginComponent
   },
   {
     path: '**',
