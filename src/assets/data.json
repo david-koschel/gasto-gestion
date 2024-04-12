@@ -3,45 +3,45 @@
     "public-pages": [
       {
         "name": "INICIO",
-        "link": "/gasto-gestion/web-pages/home/home.html"
+        "link": "home"
       },
       {
         "name": "INICIAR SESIÓN",
-        "link": "/gasto-gestion/web-pages/log-in/log-in.html"
+        "link": "log-in"
       },
       {
         "name": "REGISTRARSE",
-        "link": "/gasto-gestion/web-pages/user-types.html"
+        "link": "user-type"
       }
     ],
     "sign-up": [
       {
         "name": "INICIO",
-        "link": "/gasto-gestion/web-pages/home/home.html"
+        "link": "home"
       },
       {
         "name": "INICIAR SESIÓN",
-        "link": "/gasto-gestion/web-pages/log-in/log-in.html"
+        "link": "log-in"
       }
     ],
     "log-in": [
       {
         "name": "INICIO",
-        "link": "/gasto-gestion/web-pages/home/home.html"
+        "link": "home"
       },
       {
         "name": "REGISTRARSE",
-        "link": "/gasto-gestion/web-pages/user-types.html"
+        "link": "user-type"
       }
     ],
     "user": [
       {
         "name": "INICIO",
-        "link": "/gasto-gestion/web-pages/user-home/user-home.html"
+        "link": "user-home"
       },
       {
         "name": "CERRAR SESIÓN",
-        "link": "/gasto-gestion/web-pages/home/home.html?log-out=true"
+        "link": "log-out"
       }
     ]
   },
