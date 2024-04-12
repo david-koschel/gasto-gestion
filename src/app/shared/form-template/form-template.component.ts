@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-form-template',
@@ -10,6 +9,6 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class FormTemplateComponent{
 
-  @Input() formFields: [] | undefined;
+  @Input() formFields: any = [];
 
 }
