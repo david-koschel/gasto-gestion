@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gasto-gestion": {
+      "hosting": {
+        "gasto-gestion": [
+          "gasto-gestion"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gasto-gestion"
+  }
+}
