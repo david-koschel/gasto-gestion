@@ -1,33 +1,53 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { RouterLink } from "@angular/router";
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { NgIf } from "@angular/common";
+import { FormTemplateComponent } from "../../shared/form-template/form-template.component";
+import { DataJsonService } from "../../shared/data-json.service";
+import { HttpClientModule } from "@angular/common/http";
+import { map } from "rxjs";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    RouterLink,
-    ReactiveFormsModule,
-    NgIf
+    FormTemplateComponent,
+    HttpClientModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
 
+  private dataJsonService = inject(DataJsonService);
   private formBuilder = inject(FormBuilder);
 
-  form!: FormGroup;
+  loginFormFields: any;
+  loginForm !: FormGroup;
 
-  ngOnInit() {
-    this.form = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
-    });
+  ngOnInit(): void {
+    this.initializeLoginForm();
   }
 
-  submit() {
-    console.log(this.form.valid);
+  private initializeLoginForm() {
+    this.dataJsonService.fetchDataFromJson("form")
+      .pipe(map((json: any) => json["log-in"]))
+      .subscribe(json => this.loginFormFields = json);
+    this.loginForm = this.formBuilder.group({});
+    for (let loginFormField of this.loginFormFields) {
+      if (loginFormField.required) {
+        this.loginForm.addControl(
+          loginFormField.label,
+          ["", Validators.required]
+        )
+      } else {
+        this.loginForm.addControl(
+          loginFormField.label,
+          [""]
+        )
+      }
+    }
+  }
+
+  public submit() {
+    console.log("Petición de envío");
   }
 }

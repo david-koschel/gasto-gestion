@@ -13,6 +13,10 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: "login",
+    component: LoginComponent
+  },
+  {
     path: "cookies",
     component: CookiesPolicyComponent
   },
