@@ -6,6 +6,8 @@ import { UserTypeComponent } from './components/user-type/user-type.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { CompanyRegisterComponent } from './components/company-register/company-register.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { UserDataComponent } from './components/user-data/user-data.component';
+import { InvoiceListComponent } from './components/invoice-list/invoice-list.component';
 
 
 
@@ -37,6 +39,14 @@ export const routes: Routes = [
   {
     path: "contact",
     component: ContactComponent
+  },
+  {
+    path: "user-data",
+    component: UserDataComponent
+  },
+  {
+    path: "invoice-list",
+    component: InvoiceListComponent
   },
   {
     path: '**',

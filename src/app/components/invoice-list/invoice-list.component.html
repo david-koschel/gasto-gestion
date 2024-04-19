@@ -1,0 +1,23 @@
+<div class="d-flex flex-column align-items-center">
+    <h1 class="mb-5 text-white">Lista de Facturas</h1>
+    
+    <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Comercio</th>
+                <th>Concepto</th>
+                <th>Tipo de gasto</th>
+                <th>Fecha</th>
+                <th>Cantidad</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{ product.comercio }}</td>
+                <td>{{ product.concepto }}</td>
+                <td>{{ product.tipo }}</td>
+                <td>{{ product.quantity }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
