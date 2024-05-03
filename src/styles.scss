@@ -1,5 +1,6 @@
 @import "primeng/resources/themes/lara-dark-blue/theme.css";
 @import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
 
 body {
   background-color: #1F2937 !important;
@@ -25,6 +26,39 @@ body {
     &.cancel {
       color: rgba(187, 13, 13, 0.93);
     }
+  }
+}
+
+.form-container {
+  input, textarea {
+    color-scheme: dark;
+    border: 0;
+    background: transparent;
+    border-bottom: solid #778899;
+    color: white;
+    width: 100%;
+    font-size: 16px;
+    &:focus-visible {
+      border-bottom: solid #04d2ff;
+      outline: none;
+    }
+    &.ng-dirty.ng-touched:not(.ng-valid) {
+      border-bottom: solid #ea3e3e;
+    }
+    &::placeholder {
+      color: white;
+      opacity: 60%;
+    }
+  }
+  &.ng-submitted {
+    input, textarea {
+      &.ng-invalid, &.ng-dirty:not(.ng-valid) {
+        border-bottom: solid #ea3e3e;
+      }
+    }
+  }
+  &:not(.ng-submitted) small.text-danger {
+    display: none;
   }
 }
 
@@ -102,6 +136,28 @@ h2 {
     justify-content: end;
   }
 }
+*/
+.custom-button {
+  text-decoration: none;
+  background-color: transparent;
+  color: rgb(255, 193, 7);
+  border: 2px solid #ffc107;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  &.cancel {
+    color: #EA3E3E;
+    border: 2px solid rgb(234, 62, 62);
+  }
+  &:hover {
+    background: none;
+    color: rgba(176, 132, 9, 0.93);
+    &.cancel {
+      color: rgba(187, 13, 13, 0.93);
+    }
+  }
+}
 
 #form-container {
   display: flex;
@@ -123,4 +179,3 @@ h2 {
   border-bottom: solid #778899;
   margin-bottom: 1rem;
 }
-*/

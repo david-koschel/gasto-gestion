@@ -17,7 +17,7 @@ import {NgOptimizedImage} from "@angular/common";
 export class HeaderComponent implements OnInit {
 
   private readonly customHeaderRoutes = [
-    {routes: ["/login"], header: "log-in"},
+    {routes: ["/log-in"], header: "log-in"},
     {routes: ["/user-type"], header: "sign-up"}
   ];
 
