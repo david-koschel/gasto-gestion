@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from "../../shared/user.service";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +7,5 @@ import {UserService} from "../../shared/user.service";
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit{
-
-  public constructor(private userService: UserService) {
-  }
-
-  ngOnInit(): void {
-    this.userService.getUsers().subscribe(
-      users => console.log(users)
-    )
-  }
-
+export class HomeComponent {
 }
