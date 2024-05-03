@@ -4,7 +4,6 @@ import {provideFirebaseApp} from "@angular/fire/app";
 import {environment} from "../environments/environment";
 import {getFirestore, provideFirestore} from "@angular/fire/firestore";
 import firebase from "firebase/compat";
-import { provideStorage, getStorage } from "@angular/fire/storage"
 import initializeApp = firebase.initializeApp;
 import {AppComponent} from "./app.component";
 
@@ -14,7 +13,6 @@ import {AppComponent} from "./app.component";
     CommonModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage()),
     AppComponent
   ]
 })
