@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { CookiesPolicyComponent } from "./web-pages/cookies-policy/cookies-policy.component";
-import { PrivacyPolicyComponent } from "./web-pages/privacy-policy/privacy-policy.component";
 import { HomeComponent } from './components/home/home.component';
 import { UserTypeComponent } from './components/user-type/user-type.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
@@ -14,6 +12,8 @@ import {UserHomeComponent} from "./components/user-home/user-home.component";
 import {InvoiceFormComponent} from "./components/invoice-form/invoice-form.component";
 import {StatsComponent} from "./components/stats/stats.component";
 import {userIsLoggedInGuard, userIsNotLoggedInGuard} from "./shared/guards";
+import {PrivacyPolicyComponent} from "./components/privacy-policy/privacy-policy.component";
+import {CookiesPolicyComponent} from "./components/cookies-policy/cookies-policy.component";
 
 
 export const routes: Routes = [
