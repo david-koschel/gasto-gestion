@@ -1,19 +1,20 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors, ReactiveFormsModule } from '@angular/forms';
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-company-register',
   standalone: true,
-  imports: [ReactiveFormsModule],
+    imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './company-register.component.html',
   styleUrl: './company-register.component.scss'
 })
 
 export class CompanyRegisterComponent implements OnInit {
   protected form !: FormGroup;
-  
+
   private formBuilder = inject(FormBuilder);
-  
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       userName: ["", Validators.required],

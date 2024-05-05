@@ -4,13 +4,15 @@ import {HttpClientModule} from "@angular/common/http";
 import {map} from "rxjs";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../shared/auth.service";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -36,7 +38,6 @@ export class LoginComponent implements OnInit {
   }
 
   public submit() {
-    // @ts-ignore
     if (this.loginForm.valid) {
       this.authService.logInUser(this.loginForm.get("username")!.value, this.loginForm.get("password")!.value);
       console.log("Petición de envío");
