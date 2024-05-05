@@ -24,12 +24,14 @@ export class UserRegisterComponent implements OnInit {
   }
 
   check(){
+    this.form.updateValueAndValidity()
     console.log(this.form.valid)
   }
 
   unambiguousRoleValidator(control: AbstractControl): ValidationErrors | null {
-    const password = control.get('password');
-    const rePassword = control.get('rePassword');
-    return password === rePassword ? {passwordsDoNotMatch: true} : null;
+    const password = control.get('password')?.value;
+    const rePassword = control.get('rePassword')?.value;
+    return password !== rePassword ? {passwordsDoNotMatch: true} : null;
   };
 }
+

@@ -1,0 +1,29 @@
+<div class="d-flex flex-column align-items-center">
+    <h1 class="mb-5 text-white">Lista de Facturas</h1>
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Comercio</th>
+            <th scope="col">Concepto</th>
+            <th scope="col">Tipo de Gasto</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+            @for (item of products; track $index) {
+                <tr>
+                    <td>{{item.comercio}}</td>
+                    <td>{{item.concepto}}</td>
+                    <td>{{item.tipogasto}}</td>
+                    <td>{{item.fecha}}</td>
+                    <td>{{item.precio}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="d-flex justify-content-end">
+    <button id="submit-button" class="btn btn-outline-warning rounded-4 mt-4">AÑADIR FACTURA</button>
+</div>
