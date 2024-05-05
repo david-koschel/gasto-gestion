@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {addDoc, collection, collectionData, deleteDoc, doc, Firestore, setDoc} from "@angular/fire/firestore";
 import {Observable} from "rxjs";
-import {Invoice} from "../models/invoice.model";
+import {Invoice} from "./models/invoice.model";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class InvoiceService {
     return addDoc(invoicesRef, invoice);
   }
 
-  updateUserInvoice(userId: string, invoice: Invoice): any{
+  updateUserInvoice(userId: string, invoice: Invoice) {
     const invoicesRef = doc(this.firestore, `/users/${userId}/invoices/${invoice.id}`);
     return setDoc(invoicesRef, invoice);
   }

@@ -5,6 +5,7 @@ import {Form, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@an
 import {Invoice} from "../../shared/models/invoice.model";
 import {NgIf} from "@angular/common";
 import {validateCIF} from "../../shared/validators";
+import {InvoiceService} from "../../shared/invoice.service";
 
 @Component({
   selector: 'app-invoice-form',
@@ -22,6 +23,7 @@ export class InvoiceFormComponent implements OnInit {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private authService = inject(AuthService);
+  private invoiceService = inject(InvoiceService);
   private formBuilder = inject(FormBuilder);
 
   protected form!: FormGroup;
@@ -33,7 +35,7 @@ export class InvoiceFormComponent implements OnInit {
       if (invoiceParam === "new") {
         this.setNewData();
       } else {
-        this.setData(+invoiceParam);
+        this.setData(invoiceParam);
       }
     } else {
       this.router.navigate(["invoice-list"]);
@@ -41,7 +43,6 @@ export class InvoiceFormComponent implements OnInit {
   }
 
   setNewData() {
-    const user = this.authService.getCurrentUser();
     this.form = this.formBuilder.group({
       paymentType: ["", Validators.required],
       commerce: ["", Validators.required],
@@ -54,9 +55,9 @@ export class InvoiceFormComponent implements OnInit {
     });
   }
 
-  setData(invoiceIndex: number) {
-    this.authService.getCurrentUser().subscribe(user => {
-        this.invoice = user.invoiceList.find(invoice => invoice.invoiceNumber === invoiceIndex)!;
+  setData(invoiceIndex: string) {
+    this.invoiceService.getUserInvoices(this.authService.userId).subscribe(invoiceList => {
+        this.invoice = invoiceList.find(invoice => invoice.id === invoiceIndex)!;
         this.form = this.formBuilder.group({
           paymentType: [this.invoice.paymentType, Validators.required],
           commerce: [this.invoice.commerce, Validators.required],
@@ -73,5 +74,14 @@ export class InvoiceFormComponent implements OnInit {
 
   saveInvoice() {
     this.form.updateValueAndValidity();
+    if (this.form.valid) {
+      if (this.invoice) {
+        this.invoiceService.updateUserInvoice(this.authService.userId, {...this.form.value, id: this.invoice.id})
+          .then(() => this.router.navigate(["/invoice-list"]));
+      } else {
+        this.invoiceService.addInvoice(this.authService.userId, {...this.form.value})
+          .then(() => this.router.navigate(["/invoice-list"]));
+      }
+    }
   }
 }

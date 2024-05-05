@@ -73,6 +73,10 @@ export const routes: Routes = [
     component: StatsComponent
   },
   {
+    path: "contact",
+    component: ContactComponent
+  },
+  {
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full'

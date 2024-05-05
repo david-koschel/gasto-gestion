@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {AuthService} from "../../shared/auth.service";
 import {NgIf} from "@angular/common";
 import {validatePasswords} from "../../shared/validators";
+import {UserService} from "../../shared/user.service";
 
 @Component({
   selector: 'app-user-data',
@@ -17,6 +18,7 @@ import {validatePasswords} from "../../shared/validators";
 export class UserDataComponent implements OnInit {
 
   private authService = inject(AuthService);
+  private userService = inject(UserService);
   private formBuilder = inject(FormBuilder);
   form!: FormGroup;
 
@@ -24,7 +26,7 @@ export class UserDataComponent implements OnInit {
     this.authService.getCurrentUser().subscribe(user => {
       this.form = this.formBuilder.group({
         username: [user.username, Validators.required],
-        email: [user.password, Validators.required],
+        email: [user.email, Validators.required],
         password: [user.password, Validators.required],
         rePassword: [user.password, Validators.required]
       }, {validators: validatePasswords});
@@ -35,6 +37,8 @@ export class UserDataComponent implements OnInit {
     this.form.get("password")?.updateValueAndValidity();
     this.form.get("rePassword")?.updateValueAndValidity();
     this.form.updateValueAndValidity();
-    console.log(this.form.valid);
+    if (this.form.valid) {
+      this.userService.updateUser({...this.form.value, id: this.authService.userId});
+    }
   }
 }

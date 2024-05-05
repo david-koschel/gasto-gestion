@@ -3,6 +3,8 @@ import {AuthService} from "../../shared/auth.service";
 import {firstValueFrom} from "rxjs";
 import {Chart} from "chart.js/auto";
 import {User} from "../../shared/models/user.model";
+import {Invoice} from "../../shared/models/invoice.model";
+import {InvoiceService} from "../../shared/invoice.service";
 
 @Component({
   selector: 'app-stats',
@@ -14,6 +16,7 @@ import {User} from "../../shared/models/user.model";
 export class StatsComponent implements OnInit {
 
   private authService = inject(AuthService);
+  private invoiceService = inject(InvoiceService);
   protected chart: any;
 
   @ViewChild('barChart')
@@ -23,27 +26,7 @@ export class StatsComponent implements OnInit {
   private barChartSmall!: ElementRef;
 
   ngOnInit() {
-    this.authService.getCurrentUser().subscribe(user => this.getData(user));
-  }
-
-  private getData(user: User) {
-    const monthMap = new Map();
-    user.invoiceList.forEach(invoice => {
-      const date = new Date(invoice.date);
-      const month = date.getFullYear() * 100 + date.getMonth();
-      if (monthMap.has(month)) {
-        monthMap.set(month, monthMap.get(month) + invoice.quantity);
-      } else {
-        monthMap.set(month, invoice.quantity);
-      }
-    });
-
-    const monthArray = Array.from(monthMap.keys()).sort();
-    this.loadChart(
-      monthArray.map(month => this.monthYearToString(month)),
-      monthArray.map(month => this.monthYearToSmallString(month)),
-      monthArray.map(month => monthMap.get(month))
-    );
+    this.invoiceService.getUserInvoices(this.authService.userId).subscribe(invoices => this.getData(invoices));
   }
 
   private loadChart(labels: string[], smallLabels: string[], data: any[]) {
@@ -85,6 +68,26 @@ export class StatsComponent implements OnInit {
 
     this.barChart.nativeElement.classList = "d-none d-sm-block";
     this.barChartSmall.nativeElement.classList = "d-sm-none";
+  }
+
+  private getData(invoiceList: Invoice[]) {
+    const monthMap = new Map();
+    invoiceList.forEach(invoice => {
+      const date = new Date(invoice.date);
+      const month = date.getFullYear() * 100 + date.getMonth();
+      if (monthMap.has(month)) {
+        monthMap.set(month, monthMap.get(month) + invoice.quantity);
+      } else {
+        monthMap.set(month, invoice.quantity);
+      }
+    });
+
+    const monthArray = Array.from(monthMap.keys()).sort();
+    this.loadChart(
+      monthArray.map(month => this.monthYearToString(month)),
+      monthArray.map(month => this.monthYearToSmallString(month)),
+      monthArray.map(month => monthMap.get(month))
+    );
   }
 
 

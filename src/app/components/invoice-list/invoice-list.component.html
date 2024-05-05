@@ -14,38 +14,38 @@
     <tbody id="table-body">
       @for (item of products; track $index) {
         <tr id="tr-body" class="border-bottom">
-          <td class="d-flex d-sm-table-cell flex-column" routerLink="/invoice-form/{{item.invoiceNumber}}">
+          <td class="d-flex d-sm-table-cell flex-column" routerLink="/invoice-form/{{item.id}}">
             <div class="d-flex justify-content-between">
               <label class="d-block d-sm-none fw-bold">Comercio</label>
               <span>{{ item.commerce }}</span>
             </div>
           </td>
-          <td class="d-flex d-sm-table-cell flex-column" routerLink="/invoice-form/{{item.invoiceNumber}}">
+          <td class="d-flex d-sm-table-cell flex-column" routerLink="/invoice-form/{{item.id}}">
             <div class="d-flex justify-content-between">
               <label class="d-block d-sm-none fw-bold">Concepto</label>
               <span>{{ item.concept }}</span>
             </div>
           </td>
-          <td class="d-flex d-sm-table-cell flex-column" routerLink="/invoice-form/{{item.invoiceNumber}}">
+          <td class="d-flex d-sm-table-cell flex-column" routerLink="/invoice-form/{{item.id}}">
             <div class="d-flex justify-content-between">
               <label class="d-block d-sm-none fw-bold">Tipo de Gasto</label>
               <span>{{ item.expenseType }}</span>
             </div>
           </td>
-          <td class="d-flex d-sm-table-cell flex-column" routerLink="/invoice-form/{{item.invoiceNumber}}">
+          <td class="d-flex d-sm-table-cell flex-column" routerLink="/invoice-form/{{item.id}}">
             <div class="d-flex justify-content-between">
               <label class="d-block d-sm-none fw-bold">Fecha</label>
               <span>{{ item.date | date:undefined:undefined:"es" }}</span>
             </div>
           </td>
-          <td class="d-flex d-sm-table-cell flex-column" routerLink="/invoice-form/{{item.invoiceNumber}}">
+          <td class="d-flex d-sm-table-cell flex-column" routerLink="/invoice-form/{{item.id}}">
             <div class="d-flex justify-content-between">
               <label class="d-block d-sm-none fw-bold">Precio</label>
               <span>{{ item.quantity | currency:"EUR" }}</span>
             </div>
           </td>
           <td class="text-center d-flex d-sm-table-cell flex-column">
-            <i class="pi pi-trash text-danger"></i>
+            <i class="pi pi-trash text-danger" (click)="deleteInvoice(item.id!)"></i>
           </td>
         </tr>
       }

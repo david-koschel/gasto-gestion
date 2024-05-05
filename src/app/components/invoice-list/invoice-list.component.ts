@@ -5,6 +5,7 @@ import {AuthService} from "../../shared/auth.service";
 import {Invoice} from "../../shared/models/invoice.model";
 import {RouterLink} from "@angular/router";
 import {CurrencyPipe, DatePipe} from "@angular/common";
+import {InvoiceService} from "../../shared/invoice.service";
 
 @Component({
   selector: 'app-invoice-list',
@@ -15,11 +16,16 @@ import {CurrencyPipe, DatePipe} from "@angular/common";
 })
 export class InvoiceListComponent implements OnInit {
 
-  userService = inject(AuthService);
+  authService = inject(AuthService);
+  invoiceService = inject(InvoiceService);
 
   products: Invoice[] = [];
 
   ngOnInit() {
-    this.userService.getCurrentUser().subscribe(res => this.products = res.invoiceList);
+    this.invoiceService.getUserInvoices(this.authService.userId).subscribe(res => this.products = res);
+  }
+
+  deleteInvoice(id: string) {
+    this.invoiceService.deleteInvoice(this.authService.userId, id);
   }
 }

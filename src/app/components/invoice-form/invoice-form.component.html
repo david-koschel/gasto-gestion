@@ -1,7 +1,7 @@
 <div class="container">
   <h1 id="title">
     @if (invoice) {
-      Editar Factura Nº {{invoice.invoiceNumber}}
+      Editar Factura: {{invoice.id}}
     } @else {
       Nueva Factura
     }
@@ -10,8 +10,8 @@
     <div class="row pt-5 form-container">
       <div class="col-12 col-sm-6">
         <div class="d-flex flex-column input-container">
-          <label class="fw-bold">Nº de Factura</label>
-          <input [disabled]="true" id="invoiceNumber" [value]="invoice?.invoiceNumber || '-'">
+          <label class="fw-bold">Id de Factura</label>
+          <input [disabled]="true" id="invoiceNumber" [value]="invoice?.id || '-'">
         </div>
       </div>
       <div class="col-12 col-sm-6">

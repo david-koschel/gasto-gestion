@@ -1,5 +1,5 @@
 export interface Invoice {
-  invoiceNumber: number;
+  id?: string;
   commerce: string;
   concept: string;
   expenseType: string;
@@ -8,4 +8,5 @@ export interface Invoice {
   paymentType: string;
   cif: string;
   description: string;
+  user_id: number
 }

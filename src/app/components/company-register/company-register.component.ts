@@ -31,6 +31,8 @@ export class CompanyRegisterComponent implements OnInit {
     this.form.get("password")?.updateValueAndValidity();
     this.form.get("rePassword")?.updateValueAndValidity();
     this.form.updateValueAndValidity();
-    console.log(this.form.valid);
+    if (this.form.valid) {
+      console.log("aquí se crearía el usuario de empresa");
+    }
   }
 }

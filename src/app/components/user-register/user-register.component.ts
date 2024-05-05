@@ -7,8 +7,9 @@ import {
   ValidationErrors,
   Validators
 } from '@angular/forms';
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {validatePasswords} from "../../shared/validators";
+import {UserService} from "../../shared/user.service";
 
 @Component({
   selector: 'app-user-register',
@@ -22,6 +23,8 @@ export class UserRegisterComponent implements OnInit {
   protected form !: FormGroup;
 
   private formBuilder = inject(FormBuilder);
+  private userService = inject(UserService);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -36,7 +39,9 @@ export class UserRegisterComponent implements OnInit {
     this.form.get("password")?.updateValueAndValidity();
     this.form.get("rePassword")?.updateValueAndValidity();
     this.form.updateValueAndValidity();
-    console.log(this.form.valid);
+    if (this.form.valid) {
+      this.userService.addUser({...this.form.value}).then(() => this.router.navigate(["/log-in"]));
+    }
   }
 }
 

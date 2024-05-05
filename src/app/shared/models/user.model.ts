@@ -1,8 +1,8 @@
 import {Invoice} from "./invoice.model";
 
 export interface User {
-  username: string;
-  password: string;
+  id?: number;
   email: string;
-  invoiceList: Invoice[]
+  password: string;
+  username: string;
 }
