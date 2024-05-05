@@ -13,16 +13,18 @@ import { LoginComponent } from "./components/login/login.component";
 import {UserHomeComponent} from "./components/user-home/user-home.component";
 import {InvoiceFormComponent} from "./components/invoice-form/invoice-form.component";
 import {StatsComponent} from "./components/stats/stats.component";
+import {userIsLoggedInGuard, userIsNotLoggedInGuard} from "./shared/guards";
 
 
 export const routes: Routes = [
   {
     path: "home",
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [userIsNotLoggedInGuard]
   },
   {
-    path: "login",
-    component: LoginComponent
+    path: "contact",
+    component: ContactComponent
   },
   {
     path: "cookies",
@@ -33,48 +35,49 @@ export const routes: Routes = [
     component: PrivacyPolicyComponent
   },
   {
+    path: "log-in",
+    component: LoginComponent,
+    canActivate: [userIsNotLoggedInGuard]
+  },
+  {
     path: "user-type",
-    component: UserTypeComponent
+    component: UserTypeComponent,
+    canActivate: [userIsNotLoggedInGuard]
   },
   {
     path: "user-register",
-    component: UserRegisterComponent
+    component: UserRegisterComponent,
+    canActivate: [userIsNotLoggedInGuard]
   },
   {
     path: "company-register",
-    component: CompanyRegisterComponent
-  },
-  {
-    path: "contact",
-    component: ContactComponent
+    component: CompanyRegisterComponent,
+    canActivate: [userIsNotLoggedInGuard]
   },
   {
     path: "user-data",
-    component: UserDataComponent
+    component: UserDataComponent,
+    canActivate: [userIsLoggedInGuard]
   },
   {
     path: "invoice-list",
-    component: InvoiceListComponent
-  },
-  {
-    path: "log-in",
-    component: LoginComponent
+    component: InvoiceListComponent,
+    canActivate: [userIsLoggedInGuard]
   },
   {
     path: "user-home",
-    component: UserHomeComponent
+    component: UserHomeComponent,
+    canActivate: [userIsLoggedInGuard]
   },
   {
     path: "invoice-form/:id",
-    component: InvoiceFormComponent
+    component: InvoiceFormComponent,
+    canActivate: [userIsLoggedInGuard]
   },
   {
     path: "stats",
-    component: StatsComponent
-  },
-  {
-    path: "contact",
-    component: ContactComponent
+    component: StatsComponent,
+    canActivate: [userIsLoggedInGuard]
   },
   {
     path: '**',
