@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
   public submit() {
     if (this.loginForm.valid) {
       this.authService.logInUser(this.loginForm.get("username")!.value, this.loginForm.get("password")!.value);
-      console.log("Petición de envío");
     }
   }
 }

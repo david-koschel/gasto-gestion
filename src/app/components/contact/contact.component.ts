@@ -29,6 +29,6 @@ export class ContactComponent implements OnInit {
     this.form.updateValueAndValidity();
     if (this.form.valid) {
       console.log("aquí se enviaría el formulario de contacto");
-    };
+    }
   }
 }
