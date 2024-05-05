@@ -5,7 +5,11 @@
     </a>
     <div class="d-flex align-items-center gap-4">
       @for (button of navButtons; track $index) {
-        <a class="custom-button" [routerLink]="button.link">{{button.name}}</a>
+        @if (button.customAction) {
+          <a class="custom-button" (click)="button.customAction()">{{ button.name }}</a>
+        } @else {
+          <a class="custom-button" [routerLink]="button.link">{{ button.name }}</a>
+        }
       }
     </div>
   </div>

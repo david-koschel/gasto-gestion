@@ -22,11 +22,11 @@ export class HeaderComponent implements OnInit {
   ];
 
   private dataService = inject(DataJsonService);
-  private authService = inject(AuthService);
+  protected authService = inject(AuthService);
   private router = inject(Router);
 
   private currentHeader!: string;
-  protected navButtons!: { link: string; name: string }[];
+  protected navButtons!: { link: string; name: string; customAction?: () => {} }[];
 
   ngOnInit(): void {
     this.listenToRoute();
@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
 
   private listenToRoute() {
     this.router.events.subscribe(res => {
-      if (res.type === EventType.NavigationEnd) {
+      if (!this.authService.userIsLoggedIn && res.type === EventType.NavigationEnd) {
         const newHeader = this.getHeaderType(res.url);
         if (newHeader != this.currentHeader) {
           this.currentHeader = newHeader;
@@ -42,6 +42,20 @@ export class HeaderComponent implements OnInit {
         }
       }
     });
+    this.authService.userIsLoggedIn$.subscribe((isLoggedIn) => {
+      if (isLoggedIn) {
+        this.dataService.fetchDataFromJson("header").subscribe(data => {
+          this.navButtons = (data["user"]).map((button: any) => {
+            if (button?.link === "log-out") button.customAction = () => this.logout();
+            return button;
+          });
+        });
+      }
+    });
+  }
+
+  private logout() {
+    this.authService.logOutUser();
   }
 
   private getHeaderType(route: string) {

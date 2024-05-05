@@ -41,7 +41,7 @@
       },
       {
         "name": "CERRAR SESIÓN",
-        "link": "home?log-out=true"
+        "link": "log-out"
       }
     ]
   },
