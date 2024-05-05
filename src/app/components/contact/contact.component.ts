@@ -11,9 +11,9 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 
 export class ContactComponent implements OnInit {
   protected form !: FormGroup;
-  
+
   private formBuilder = inject(FormBuilder);
-  
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: ["", Validators.required],
@@ -21,12 +21,14 @@ export class ContactComponent implements OnInit {
       email: ["", [Validators.required, Validators.email]],
       subject: ["", Validators.required],
       message: ["", Validators.required],
-      check: ["", Validators.requiredTrue] 
+      check: ["", Validators.requiredTrue]
     });
   }
 
   check() {
     this.form.updateValueAndValidity();
-    console.log(this.form.valid);
+    if (this.form.valid) {
+      console.log("aquí se enviaría el formulario de contacto");
+    };
   }
 }
