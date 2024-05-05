@@ -1,9 +1,9 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {AuthService} from "../../shared/auth.service";
 import {NgIf} from "@angular/common";
 import {validatePasswords} from "../../shared/validators";
-import {UserService} from "../../shared/user.service";
+import {AuthService} from "../../shared/services/auth.service";
+import {UserService} from "../../shared/services/user.service";
 
 @Component({
   selector: 'app-user-data',

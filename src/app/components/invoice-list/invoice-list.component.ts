@@ -1,11 +1,11 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {TableModule} from 'primeng/table';
 import {ButtonModule} from "primeng/button";
-import {AuthService} from "../../shared/auth.service";
 import {Invoice} from "../../shared/models/invoice.model";
 import {RouterLink} from "@angular/router";
 import {CurrencyPipe, DatePipe} from "@angular/common";
-import {InvoiceService} from "../../shared/invoice.service";
+import {InvoiceService} from "../../shared/services/invoice.service";
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-invoice-list',

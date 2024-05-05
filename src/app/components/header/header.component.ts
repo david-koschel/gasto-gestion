@@ -1,8 +1,8 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {AuthService} from "../../shared/auth.service";
-import {DataJsonService} from "../../shared/data-json.service";
 import {EventType, Router, RouterLink} from "@angular/router";
 import {NgOptimizedImage} from "@angular/common";
+import {DataJsonService} from "../../shared/services/data-json.service";
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit {
     return this.getCustomHeader(route);
   }
 
- private getCustomHeader(route: string): string {
+  private getCustomHeader(route: string): string {
     const customHeader = this.customHeaderRoutes.find(customHeader => customHeader.routes.includes(route));
     return customHeader?.header || "public-pages";
   }

@@ -1,10 +1,8 @@
 import {Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
-import {AuthService} from "../../shared/auth.service";
-import {firstValueFrom} from "rxjs";
 import {Chart} from "chart.js/auto";
-import {User} from "../../shared/models/user.model";
 import {Invoice} from "../../shared/models/invoice.model";
-import {InvoiceService} from "../../shared/invoice.service";
+import {AuthService} from "../../shared/services/auth.service";
+import {InvoiceService} from "../../shared/services/invoice.service";
 
 @Component({
   selector: 'app-stats',

@@ -1,15 +1,8 @@
-import {Component, OnInit, inject} from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  ValidationErrors,
-  Validators
-} from '@angular/forms';
+import {Component, inject, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router, RouterLink} from "@angular/router";
 import {validatePasswords} from "../../shared/validators";
-import {UserService} from "../../shared/user.service";
+import {UserService} from "../../shared/services/user.service";
 
 @Component({
   selector: 'app-user-register',
