@@ -8,6 +8,7 @@ import {
   Validators
 } from '@angular/forms';
 import {RouterLink} from "@angular/router";
+import {validatePasswords} from "../../shared/validators";
 
 @Component({
   selector: 'app-user-register',
@@ -28,18 +29,14 @@ export class UserRegisterComponent implements OnInit {
       email: ["", [Validators.required, Validators.email]],
       password: ["", Validators.required],
       rePassword: ["", Validators.required]
-    }, {validators: this.unambiguousRoleValidator});
+    }, {validators: validatePasswords});
   }
 
   check() {
+    this.form.get("password")?.updateValueAndValidity();
+    this.form.get("rePassword")?.updateValueAndValidity();
     this.form.updateValueAndValidity();
     console.log(this.form.valid);
   }
-
-  unambiguousRoleValidator(control: AbstractControl): ValidationErrors | null {
-    const password = control.get('password')?.value;
-    const rePassword = control.get('rePassword')?.value;
-    return password !== rePassword ? {passwordsDoNotMatch: true} : null;
-  };
 }
 

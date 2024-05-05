@@ -1,7 +1,8 @@
 import {inject, Injectable} from '@angular/core';
-import {BehaviorSubject, map} from "rxjs";
+import {BehaviorSubject, concatAll, filter, map, Observable, tap} from "rxjs";
 import {Router} from "@angular/router";
 import {DataJsonService} from "./data-json.service";
+import {User} from "./models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,12 @@ export class AuthService {
     localStorage.removeItem("user-email");
     this.userIsLoggedInSubject.next(false);
     this.router.navigate(["home"]);
+  }
+
+  getCurrentUser(): Observable<User> {
+    return this.dataService.fetchDataFromJson("users").pipe(
+      concatAll(),
+      filter((user: any) => user.email === localStorage.getItem("user-email"))
+    );
   }
 }

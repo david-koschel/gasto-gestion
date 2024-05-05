@@ -11,6 +11,8 @@ import { InvoiceListComponent } from './components/invoice-list/invoice-list.com
 
 import { LoginComponent } from "./components/login/login.component";
 import {UserHomeComponent} from "./components/user-home/user-home.component";
+import {InvoiceFormComponent} from "./components/invoice-form/invoice-form.component";
+import {StatsComponent} from "./components/stats/stats.component";
 
 
 export const routes: Routes = [
@@ -61,6 +63,14 @@ export const routes: Routes = [
   {
     path: "user-home",
     component: UserHomeComponent
+  },
+  {
+    path: "invoice-form/:id",
+    component: InvoiceFormComponent
+  },
+  {
+    path: "stats",
+    component: StatsComponent
   },
   {
     path: '**',

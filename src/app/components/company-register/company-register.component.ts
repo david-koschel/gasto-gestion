@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors, ReactiveFormsModule } from '@angular/forms';
 import {RouterLink} from "@angular/router";
+import {validateCIF, validatePasswords} from "../../shared/validators";
 
 @Component({
   selector: 'app-company-register',
@@ -19,26 +20,17 @@ export class CompanyRegisterComponent implements OnInit {
     this.form = this.formBuilder.group({
       userName: ["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
-      cif: ["", [Validators.required, this.validateCIF]],
+      cif: ["", [Validators.required, validateCIF]],
       password: ["", Validators.required],
       rePassword: ["", Validators.required]
-    }, { validators: this.unambiguousRoleValidator });
+    }, { validators: validatePasswords });
   }
 
   check() {
+    this.form.get("cif")?.updateValueAndValidity();
+    this.form.get("password")?.updateValueAndValidity();
+    this.form.get("rePassword")?.updateValueAndValidity();
     this.form.updateValueAndValidity();
     console.log(this.form.valid);
-  }
-
-  unambiguousRoleValidator(control: AbstractControl): ValidationErrors | null {
-    const password = control.get('password')?.value;
-    const rePassword = control.get('rePassword')?.value;
-    return password !== rePassword ? { passwordsDoNotMatch: true } : null;
-  }
-
-  validateCIF(control: AbstractControl): ValidationErrors | null {
-    const cif = control.value;
-    const cifRegex = /^[A-HJNPQRSUVW]{1}\d{7}[0-9,A-J]$/;
-    return cifRegex.test(cif) ? null : { invalidCIF: true };
   }
 }

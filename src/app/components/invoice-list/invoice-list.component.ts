@@ -1,19 +1,25 @@
-import { Component } from '@angular/core';
-import { TableModule } from 'primeng/table';
+import {Component, inject, OnInit} from '@angular/core';
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from "primeng/button";
+import {AuthService} from "../../shared/auth.service";
+import {Invoice} from "../../shared/models/invoice.model";
+import {RouterLink} from "@angular/router";
+import {CurrencyPipe, DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-invoice-list',
   standalone: true,
-  imports: [TableModule ],
+  imports: [TableModule, ButtonModule, RouterLink, CurrencyPipe, DatePipe],
   templateUrl: './invoice-list.component.html',
   styleUrl: './invoice-list.component.scss'
 })
-export class InvoiceListComponent {
-products = [
-  {comercio: "Amazon", concepto: "Ordenador nuevo", tipogasto: "Personal", fecha: "10-02-1999", precio: 100},
-  {comercio: "Zara", concepto: "Calcetines", tipogasto: "Ropa", fecha: "21-03-1873", precio: 30},
-  {comercio: "Mercadona", concepto: "Galletas", tipogasto: "Comida", fecha: "31-01-1345", precio: 5},
-];
+export class InvoiceListComponent implements OnInit {
 
+  userService = inject(AuthService);
 
+  products: Invoice[] = [];
+
+  ngOnInit() {
+    this.userService.getCurrentUser().subscribe(res => this.products = res.invoiceList);
+  }
 }
