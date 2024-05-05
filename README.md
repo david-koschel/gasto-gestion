@@ -17,3 +17,11 @@ aplicación. A continuación se muestran sus credenciales (correo:contraseña).
 - test2@mail:test2
 
 Para probar la aplicación, simplemente hay que ejecutar el archivo ```index.html```.
+
+## Sprint 3
+
+Para este Sprint se desarrolló la aplicación usando ___Angular___.
+
+Los usuarios de prueba especificados en el sprint anterior siguen funcionando.
+
+Para probar la aplicación, simplemente hay que ejecutar el comando ```ng serve```.
