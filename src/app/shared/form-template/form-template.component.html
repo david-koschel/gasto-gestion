@@ -1,9 +1,0 @@
-<div id="form-container">
-  @for (formField of this.formFields; track formField){
-    <div class="d-inline-flex flex-row">
-      <span class="{{formField.path}}"></span>
-      <input id="{{formField.id}}" type="{{formField.type}}" placeholder="{{formField.label}}">
-      <label for="{{formField.id}}"></label>
-    </div>
-  }
-</div>

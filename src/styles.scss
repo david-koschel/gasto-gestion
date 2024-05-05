@@ -16,51 +16,67 @@ body {
   border-radius: 10px;
   cursor: pointer;
   transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
   &.cancel {
     color: #EA3E3E;
     border: 2px solid rgb(234, 62, 62);
   }
+
   &:hover {
     background: none;
     color: rgba(176, 132, 9, 0.93);
+
     &.cancel {
       color: rgba(187, 13, 13, 0.93);
     }
   }
 }
 
-.form-container {
-  input, textarea {
-    color-scheme: dark;
-    border: 0;
-    background: transparent;
-    border-bottom: solid #778899;
-    color: white;
-    width: 100%;
-    font-size: 16px;
-    &:focus-visible {
-      border-bottom: solid #04d2ff;
-      outline: none;
+form {
+  .form-container {
+    .pi {
+      color: #04d2ff;
+      font-size: 20px;
     }
-    &.ng-dirty.ng-touched:not(.ng-valid) {
-      border-bottom: solid #ea3e3e;
-    }
-    &::placeholder {
+
+    input, textarea {
+      color-scheme: dark;
+      border: 0;
+      background: transparent;
+      border-bottom: solid #778899;
       color: white;
-      opacity: 60%;
+      width: 100%;
+      font-size: 16px;
+
+      &:focus-visible {
+        border-bottom: solid #04d2ff;
+        outline: none;
+      }
+
+      &.ng-dirty.ng-touched:not(.ng-valid) {
+        border-bottom: solid #ea3e3e;
+      }
+
+      &::placeholder {
+        color: white;
+        opacity: 60%;
+      }
     }
   }
+
   &.ng-submitted {
     input, textarea {
       &.ng-invalid, &.ng-dirty:not(.ng-valid) {
         border-bottom: solid #ea3e3e;
       }
     }
-  }
-  &:not(.ng-submitted) small.text-danger {
-    display: none;
+
+    &:not(.ng-submitted) small.text-danger {
+      display: none;
+    }
   }
 }
+
 
 /*.custom-button-container {
   button, a {
@@ -146,13 +162,16 @@ h2 {
   border-radius: 10px;
   cursor: pointer;
   transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
   &.cancel {
     color: #EA3E3E;
     border: 2px solid rgb(234, 62, 62);
   }
+
   &:hover {
     background: none;
     color: rgba(176, 132, 9, 0.93);
+
     &.cancel {
       color: rgba(187, 13, 13, 0.93);
     }
@@ -163,16 +182,17 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   #input-parent {
     display: flex;
     flex-direction: column;
     gap: .5rem;
+
     svg {
       font-size: 38px;
     }
   }
 }
-
 
 
 #data-container .text-container, input {

@@ -1,16 +1,16 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { FormTemplateComponent } from "../../shared/form-template/form-template.component";
-import { DataJsonService } from "../../shared/data-json.service";
-import { HttpClientModule } from "@angular/common/http";
-import { map } from "rxjs";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {Component, inject, OnInit} from '@angular/core';
+import {DataJsonService} from "../../shared/data-json.service";
+import {HttpClientModule} from "@angular/common/http";
+import {map} from "rxjs";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {AuthService} from "../../shared/auth.service";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    FormTemplateComponent,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   private dataJsonService = inject(DataJsonService);
   private formBuilder = inject(FormBuilder);
+  private authService = inject(AuthService);
 
   loginFormFields: any;
   loginForm !: FormGroup;
@@ -28,26 +29,17 @@ export class LoginComponent implements OnInit {
   }
 
   private initializeLoginForm() {
-    this.dataJsonService.fetchDataFromJson("form")
-      .pipe(map((json: any) => json["log-in"]))
-      .subscribe(json => this.loginFormFields = json);
-    this.loginForm = this.formBuilder.group({});
-    for (let loginFormField of this.loginFormFields) {
-      if (loginFormField.required) {
-        this.loginForm.addControl(
-          loginFormField.label,
-          ["", Validators.required]
-        )
-      } else {
-        this.loginForm.addControl(
-          loginFormField.label,
-          [""]
-        )
-      }
-    }
+    this.loginForm = this.formBuilder.group({
+      username: [null, Validators.required],
+      password: [null, Validators.required]
+    });
   }
 
   public submit() {
-    console.log("Petición de envío");
+    // @ts-ignore
+    if (this.loginForm.valid) {
+      this.authService.logInUser(this.loginForm.get("username")!.value, this.loginForm.get("password")!.value);
+      console.log("Petición de envío");
+    }
   }
 }
