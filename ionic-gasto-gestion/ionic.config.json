@@ -1,0 +1,7 @@
+{
+  "name": "ionic-gasto-gestion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
