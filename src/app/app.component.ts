@@ -1,19 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
-import {FooterComponent} from "./components/footer/footer.component";
-import {HeaderComponent} from "./components/header/header.component";
-import {registerLocaleData} from "@angular/common";
-import localeEs from '@angular/common/locales/es'
+import { Component } from '@angular/core';
+import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-root',
+  templateUrl: 'app.component.html',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, HeaderComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [IonApp, IonRouterOutlet],
 })
-export class AppComponent implements OnInit {
-  ngOnInit() {
-    registerLocaleData(localeEs, 'es');
-  }
+export class AppComponent {
+  constructor() {}
 }

@@ -1,5 +1,5 @@
 {
-  "name": "ionic-gasto-gestion",
+  "name": "gasto-gestion",
   "integrations": {
     "capacitor": {}
   },
