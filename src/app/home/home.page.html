@@ -1,13 +1,12 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div *ngIf="user">
+    <h2>Welcome, {{ userData?.firstName }}</h2>
+  </div>
+  <ion-button expand="full" (click)="authService.logout()">Logout</ion-button>
 </ion-content>

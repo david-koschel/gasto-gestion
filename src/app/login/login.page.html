@@ -8,15 +8,6 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-button id="open-action-sheet">Open</ion-button>
-  <ion-action-sheet
-    trigger="open-action-sheet"
-    header="Actions"
-    [buttons]="actionSheetButtons"
-  ></ion-action-sheet>
-
-
-
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Gasto Gestión</ion-title>
@@ -35,6 +26,6 @@
     </ion-list>
     <ion-button>Iniciar</ion-button>
 
-    <p>¿Aún no te has registrado?</p>
+    <p><a routerLink="">¿Aún no te has registrado?</a></p>
   </div>
 </ion-content>
